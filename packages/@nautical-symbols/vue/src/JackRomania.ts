@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import { defineComponent } from 'vue';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { symbolProps } from './SymbolProps.js';
+import { renderSymbol, useInstanceId } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 400\" xml:space=\"preserve\" id=\"jack-romania-svg61\" style=\"shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd\"",
+  body: "<defs id=\"jack-romania-defs4\"><style id=\"jack-romania-style2\" type=\"text/css\">.str0{stroke:#000;stroke-width:.7056}.fil0{fill:#40a0ff}</style></defs><g id=\"jack-romania-Layer_x0020_1\"><g id=\"jack-romania-g329\"><path id=\"jack-romania-_129294928\" d=\"M0 0h600v400H0z\" class=\"fil0\" style=\"display:inline\"/><g id=\"jack-romania-g52\" transform=\"matrix(.88834 0 0 1.00658 57.569 6.773)\"><path id=\"jack-romania-_20604080\" d=\"M468.254 159.711v-5.25h-41.825v-8.925h51.275v14.175z\" class=\"fil0 str0\" transform=\"matrix(1.42188 0 0 .63 -185.614 53.83)\"/><path id=\"jack-romania-_20604080-9\" d=\"M477.704 159.711h-9.45v-5.25h-41.825v-8.925h51.275z\" class=\"fil0 str0\" style=\"clip-rule:evenodd;fill:#40a0ff;fill-rule:evenodd;stroke:#000;stroke-width:.7056;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision\" transform=\"matrix(-1.53983 .00056 -.00136 -.63007 1142.942 245.877)\"/><path id=\"jack-romania-_20603216\" d=\"M454.412 127.023q9.686-3.618 9.57-11.437-3.268-10.27-14.004-10.27-12.604.117-14.005 10.037-.7 7.352 9.803 11.436a42471 42471 0 0 0-8.249 118.697q-3.381 13.81-23.727 9.207-26.84-9.336-39.678-32.676 5.839-.417 11.065-.628-13.514-14.497-21.78-22.96-3.87 15.351-8.003 28.602 6.102-2.361 9.316-3.674 4.685 34.476 37.546 47.4 41.127 10.46 47.578 22.093 9.45-14.385 47.46-21.63 29.49-7.636 38.331-47.103 4.518.894 8.96 1.996-6.495-19.484-9.053-27.684a1165 1165 0 0 1-20.205 22.304q5.445.525 10.627 1.05-18.723 29.845-45.233 33.256-14.855 1.931-18.617-11.783-4.698-82.405-7.702-116.233z\" class=\"fil0 str0\"/><path id=\"jack-romania-_129275552\" d=\"M449.511 110.218c4.253 0 7.702 2.613 7.702 5.835s-3.449 5.835-7.702 5.835-7.702-2.613-7.702-5.835 3.449-5.835 7.702-5.835z\" class=\"fil0 str0\"/><path id=\"jack-romania-path1240\" d=\"M447.63 291.862c-4.756-6.359-19.998-13.085-42.692-19.207-13.433-3.624-25.273-12.067-32.468-23.145-4.165-6.413-6.965-14.222-8.401-22.656-.266-1.563-.258-2.767-.303-2.812s-1.919.849-4.21 1.756c-2.292.908-4.741 1.8-4.848 1.801-.106 0 .52-1.179.841-2.209 1.28-4.1 4.436-15.307 5.505-19.55.622-2.472 1.221-5.31 1.331-5.437.192-.223 4.305 4.821 15.255 15.886l5.819 5.88-1.75.29c-.897.15-3.972.077-5.909.18-1.936.104-3.52.311-3.52.46 0 .559 3.511 6.11 5.726 9.054 7.631 10.143 18.51 18.197 31.213 23.106 5.131 1.983 12.163 2.825 16.587 1.986 5.101-.967 8.594-3.788 10.284-8.304.563-1.505.887-5.398 3.008-36.176 3.884-56.356 5.126-81.786 5.564-83.378l.2-1.398-2.643-1.252c-2.87-1.36-5.243-3.491-6.423-5.5-.711-1.209-.762-1.91-.747-3.997.019-2.797.653-4.544 2.41-6.488 1.51-1.671 3.214-2.48 6.014-3.197 4.186-1.07 9.604-.69 12.967 1.014 1.955.99 3.985 2.992 5.093 5.36.785 1.678 1.164 3.43 1.025 4.775-.353 3.424-3.36 6.641-7.486 8.63-1.29.622-2.368.603-2.398.607s.574 4.05.976 8.99c1.547 18.998 3.666 48.32 5.995 87.755 1.153 19.501.752 20.317 1.484 22.261 1.014 2.693 2.255 4.568 4.201 6.347 2.839 2.595 5.911 3.632 10.757 3.631 1.654 0 4.134-.199 5.51-.44 14.36-2.528 26.566-10.482 37.423-24.386 2.059-2.637 6.049-8.883 6.049-9.258 0-.116-1.537-.43-3.802-.632-2.266-.203-4.627.047-5.147-.113l-1.238-.38 3.502-3.903c1.829-2.036 6.123-6.602 9.322-10.166 3.2-3.563 6.232-7.131 6.385-7.161.231-.046 9.167 26.453 8.978 26.622-.034.03-2.115-.815-3.777-1.19-1.663-.376-3.566-.775-4.229-.887l-1.125-.15-.164 1.244c-.544 4.129-3.37 13.057-5.996 18.552-4.504 9.423-10.29 16.456-17.477 21.24-5.406 3.599-10.643 5.309-18.468 6.92-20.81 4.283-34.888 10.59-42.106 18.865l-1.194 1.368zm5.268-169.363c2.346-1.318 3.426-2.957 3.426-5.197 0-1.461-.149-1.958-.91-3.042-3.042-4.326-11.527-4.114-14.245.283-2.011 3.255-.669 6.787 3.527 8.478 1.124.453 2.004.56 4.007.487 2.208-.08 2.794-.221 4.194-1.009z\" style=\"fill:#000;fill-opacity:1;stroke:#000;stroke-width:.299622;stroke-opacity:1\" transform=\"translate(1.271 -1.271)\"/><path id=\"jack-romania-path1242\" d=\"m407.353 150.453.133-4.734 27.934-.25 8.683.117.067 2.118c.031.996-.068 3.043-.342 4.354l.081 2.549-8.832-.04-27.565-.203z\" style=\"fill:#000;fill-opacity:1;stroke-width:.307587\"/><path id=\"jack-romania-path1244\" d=\"m468.42 154.375-.038.039h-5.438c-5.353 0-6.286.222-6.42-.272-.083-.3-.448-2.886-.392-4.898l-.357-3.81 10.948-.078 26.764.337.544 3.973-.468 4.573-20.594.33-4.776-.038z\" style=\"fill:#000;fill-opacity:1;stroke-width:.307105\"/></g><g id=\"jack-romania-g57\"><path id=\"jack-romania-_129821512\" d=\"M100 0H0v200h100z\" style=\"fill:#002b7f\"/><path id=\"jack-romania-_129821488\" d=\"M200 0H100v200h100z\" style=\"fill:#fcd116\"/><path id=\"jack-romania-_129821464\" d=\"M300 0H200v200h100z\" style=\"fill:#ce1126\"/></g></g></g>",
+  height: "400",
+  width: "600",
+};
+const _title = "Naval jack of Romania";
+const _description = "Naval jack of Romania. Flown at the bow of naval vessels in harbour or at anchor. The national flag in the canton.";
+
+export const JackRomania = defineComponent({
+  name: 'JackRomania',
+  inheritAttrs: false,
+  props: symbolProps,
+  setup(props, { attrs }) {
+    const instanceId = useInstanceId();
+    return () =>
+      renderSymbol({
+        attrs,
+        description: props.description ?? _description,
+        height: props.height,
+        instanceId,
+        svg: _svg,
+        title: props.title ?? _title,
+        width: props.width,
+      });
+  },
+});

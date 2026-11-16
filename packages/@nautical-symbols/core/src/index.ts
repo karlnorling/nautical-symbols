@@ -1,7 +1,7 @@
 /**
  * Main entry point for the @nautical-symbols/core package.
  *
- * Provides typed access to all nautical symbol data (signal flags and chart symbols) including inline SVGs,
+ * Provides typed access to all nautical symbol data (signal flags, ensigns and chart symbols) including inline SVGs,
  * asset paths, and metadata.
  *
  * @module @nautical-symbols/core
@@ -37,6 +37,6 @@ export const getSymbol = (id: string): NauticalSymbol | undefined => symbols.fin
 export const getSymbolsByCategory = (category: NauticalSymbolCategory): NauticalSymbol[] =>
   symbols.filter((s) => s.category === category);
 
-/** Returns all symbols in one family: `"flags"` or `"chart"`. */
+/** Returns all symbols in one family: `"flags"`, `"ensigns"` or `"chart"`. */
 export const getSymbolsByGroup = (group: NauticalSymbolGroup): NauticalSymbol[] =>
   symbols.filter((s) => s.group === group);

@@ -1,0 +1,21 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import * as React from 'react';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import type { SymbolProps } from './SymbolProps.js';
+import { SymbolSvg } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 12\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"",
+  body: "<path fill=\"#fecb00\" d=\"M0 0h18v12H0z\"/><path fill=\"#34b233\" d=\"M0 4h18v8H0z\"/><path fill=\"#ea2839\" d=\"M0 8h18v4H0z\"/><g transform=\"translate(9 6.422)scale(4.422)\"><path id=\"jack-myanmar-a\" fill=\"#fff\" d=\"M-.325 0 0-1l.325 1z\"/><use xlink:href=\"#jack-myanmar-a\" transform=\"rotate(-144)\"/><use xlink:href=\"#jack-myanmar-a\" transform=\"rotate(-72)\"/><use xlink:href=\"#jack-myanmar-a\" transform=\"rotate(72)\"/><use xlink:href=\"#jack-myanmar-a\" transform=\"rotate(144)\"/></g>",
+  height: "800",
+  width: "1200",
+};
+const _title = "Naval jack of Myanmar";
+const _description = "Naval jack of Myanmar. Flown at the bow of naval vessels in harbour or at anchor. The national flag flown as the jack.";
+
+export const JackMyanmar = React.memo<SymbolProps>((props) => (
+  <SymbolSvg {...props} defaultDescription={_description} defaultTitle={_title} svg={_svg} />
+));
+JackMyanmar.displayName = 'JackMyanmar';

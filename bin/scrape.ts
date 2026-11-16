@@ -9,6 +9,9 @@
  * - **Chart symbols** — the Wikimedia Commons category "SVG Nautical Chart
  *   icons" (the SVG sub-category of "Nautical Chart Icons"): INT 1 paper-chart
  *   and ECDIS symbols for buoys, beacons, lights, topmarks, dangers and areas.
+ * - **Ensigns** — the galleries in the Wikipedia articles "Civil ensign",
+ *   "Naval ensign" and "Jack (flag)": the flags vessels fly to show their
+ *   nationality, per country. Former and historical flags are left out.
  *
  * Every file's licence is read from the Commons API, because the sources mix
  * public domain, CC0, CC BY-SA 4.0 and GPL artwork.
@@ -17,7 +20,8 @@
  * CSS classes), so never change one. Flags use the fixed {@link FLAG_CODES}
  * table; chart codes are derived from the Commons file name by
  * {@link chartCode}, with {@link CHART_OVERRIDES} for files that do not follow
- * the `NChart-Symbol INT …` / `NChart ECDIS …` naming.
+ * the `NChart-Symbol INT …` / `NChart ECDIS …` naming. Ensign codes are derived
+ * from the country in the gallery caption ({@link ensignCode}).
  *
  * Run indirectly via `yarn update` (bin/update.ts).
  */
@@ -39,6 +43,9 @@ export const CATEGORIES = [
   'number-pennants',
   'nato-number-flags',
   'special-pennants',
+  'civil-ensigns',
+  'naval-ensigns',
+  'jacks',
   'cardinal-marks',
   'lateral-marks',
   'isolated-danger-marks',
@@ -155,7 +162,10 @@ const authorText = (html: string | undefined): string =>
   html ? squash(parse(html).textContent) || 'unknown' : 'unknown';
 
 /** Looks up the original file URL, licence and author for each Commons file, 50 per request. */
-const fetchFileInfo = async (fileNames: string[]): Promise<Map<string, FileInfo>> => {
+const fetchFileInfo = async (
+  fileNames: string[],
+  { allowMissing = false } = {},
+): Promise<Map<string, FileInfo>> => {
   interface Response {
     query: {
       normalized?: Array<{ from: string; to: string }>;
@@ -197,7 +207,11 @@ const fetchFileInfo = async (fileNames: string[]): Promise<Map<string, FileInfo>
       let title = `File:${fileName}`;
       for (let hops = 0; resolve.has(title) && hops < 5; hops++) title = resolve.get(title)!;
       const ii = byTitle.get(title)?.imageinfo?.[0];
-      if (!ii) throw new Error(`Commons has no file "${fileName}"`);
+      if (!ii) {
+        // Wikipedia articles can use local (often non-free) files that Commons lacks.
+        if (allowMissing) continue;
+        throw new Error(`Commons has no file "${fileName}"`);
+      }
       info.set(fileName, {
         author: authorText(ii.extmetadata?.Artist?.value),
         fileUrl: ii.url,
@@ -572,16 +586,262 @@ const scrapeChart = async (): Promise<
 };
 
 // ---------------------------------------------------------------------------
+// Ensigns
+// ---------------------------------------------------------------------------
+
+type EnsignCategory = 'civil-ensigns' | 'naval-ensigns' | 'jacks';
+
+/** A Wikipedia article whose galleries list one ensign or jack per country. */
+interface EnsignSource {
+  article: string;
+  category: EnsignCategory;
+  /** Section ids (headings) whose galleries are skipped: former and historical flags. */
+  skip: RegExp;
+}
+
+const ENSIGN_SOURCES: readonly EnsignSource[] = [
+  { article: 'Civil_ensign', category: 'civil-ensigns', skip: /^(Former|See_also|Remarks)/ },
+  { article: 'Naval_ensign', category: 'naval-ensigns', skip: /^(Historical|References)/ },
+  { article: 'Jack_(flag)', category: 'jacks', skip: /^(Etymology|Usage|Shapes|See_also|Notes|References|Further|External)/ },
+]; // prettier-ignore
+
+/** One gallery item: the caption under it and the captioned images in it. */
+interface GalleryItem {
+  /** Id of the nearest heading above the gallery. */
+  section: string;
+  text: string;
+  figures: Array<{ caption: string; file: string }>;
+}
+
+/** Every gallery item in an article, in document order, with its section heading. */
+const galleryItems = (doc: HTMLElement): GalleryItem[] => {
+  const items: GalleryItem[] = [];
+  let section = '';
+  const walk = (node: Node): void => {
+    if (node.nodeType !== 1) return;
+    const el = node as HTMLElement;
+    if (/^H[2-4]$/.test(el.tagName ?? '') && el.id) section = el.id;
+    if (el.classNames.includes('gallerybox')) {
+      const figures = el.querySelectorAll('a[href*="/wiki/File:"]').map((a) => ({
+        caption: (a.getAttribute('title') ?? '').trim(),
+        file: normalizeFileName(a.getAttribute('href')!.match(/\/wiki\/File:([^?#]+)/)![1]),
+      }));
+      const caption = el.querySelector('.gallerytext');
+      items.push({ figures, section, text: caption ? cellText(caption) : '' });
+      return;
+    }
+    el.childNodes.forEach(walk);
+  };
+  walk(doc);
+  return items;
+};
+
+/** One-line notes per gallery section, used in the descriptions. */
+const SECTION_NOTES: Readonly<Record<string, string>> = {
+  Sovereign_states: 'The national flag in the canton of a red or blue field.',
+  British_overseas_territories_and_crown_dependencies:
+    'A British Red Ensign defaced with the badge of the territory.',
+  Blue_Ensign_exceptions: 'A blue ensign for government or reserve vessels.',
+  Civil_ensigns_that_vary_greatly_from_the_national_flag:
+    'Differs markedly from the national flag.',
+  Civil_ensigns_consisting_of_the_national_flag_with_an_additional_emblem:
+    'The national flag with an added emblem.',
+  Civil_ensigns_that_are_simplified_national_flags_with_coat_of_arms_removed:
+    'The national flag without the coat of arms.',
+  Civil_ensigns_with_a_modified_coat_of_arms: 'The national flag with a modified coat of arms.',
+  Civil_ensigns_differing_from_the_national_flag_in_the_proportions:
+    'The national flag in different proportions.',
+  War_ensign_as_jack: 'The naval ensign flown as the jack.',
+  War_flag_as_jack: 'The war flag flown as the jack.',
+  Square_version_of_national_flag_as_jack: 'A square version of the national flag.',
+  Canton_of_national_ensign_as_jack: 'The canton of the national ensign.',
+  National_coat_of_arms_as_jack: 'Shows the national coat of arms.',
+  National_flag_as_jack: 'The national flag flown as the jack.',
+  National_flag_in_canton_as_jack: 'The national flag in the canton.',
+  Jacks_of_special_design: 'A jack of special design.',
+  Cross_and_Saltire_Jacks: 'A cross or saltire design.',
+  Union_jacks: 'A union jack.',
+};
+
+/** Jack captions that don't follow "<Kind> jack of <Country>". Keyed by caption text. */
+const JACK_OVERRIDES: Readonly<Record<string, { code: string; name: string } | null>> = {
+  'Canadian Coast Guard jack': { code: 'jack-coast-guard-canada', name: 'Coast guard jack of Canada' },
+  'Naval jack (Prinsengeus) of the Royal Netherlands Navy (Kingdom of The Netherlands)': {
+    code: 'jack-netherlands',
+    name: 'Naval jack of the Netherlands (Prinsengeus)',
+  },
+  'Netherlands (civil jack, unofficial, the most popular of several designs)': {
+    code: 'jack-civil-netherlands',
+    name: 'Civil jack of the Netherlands (unofficial)',
+  },
+  // Same artwork as "Naval jack of the United Kingdom".
+  'The Union Jack of the United Kingdom': null,
+}; // prettier-ignore
+
+/** Ensign files whose derived code and name collide with another entry. Keyed by file name with spaces. */
+const ENSIGN_FILE_OVERRIDES: Readonly<Record<string, { code: string; name: string }>> = {
+  // El Salvador is listed twice: with an emblem added, and with the arms removed.
+  'Civil Flag of El Salvador.svg': {
+    code: 'ensign-civil-el-salvador-plain',
+    name: 'Civil ensign of El Salvador (without coat of arms)',
+  },
+};
+
+/** Captions for flags that are no longer in use, e.g. "Naval jack of Canada from 1968 to 2013". */
+const isHistorical = (text: string): boolean =>
+  /\(former\)|\b(?:from|in) \d{4}\b/.test(text) && !/\bpresent\b/.test(text);
+
+/** Slug for a country or territory name, without a leading article: "The Bahamas" → "bahamas". */
+const countrySlug = (country: string): string => slugify(country.replace(/^the\s+/i, ''));
+
+/** A gallery caption's country inside a sentence: "The Bahamas" → "the Bahamas". */
+const inSentence = (country: string): string => country.replace(/^The\s/, 'the ');
+
+/**
+ * Derives the code and name of an ensign or jack from its gallery item, or
+ * `null` when the item is not one (a vexillology icon, a former flag).
+ *
+ * - Civil ensign, "Australia" → `ensign-civil-australia`, "Civil ensign of Australia"
+ * - Civil ensign, "Spain (Yacht ensign)" → `ensign-yacht-spain`, "Yacht ensign of Spain"
+ * - Naval ensign, "Albania (Coast Guard)" → `ensign-coast-guard-albania`
+ * - Jack, "Naval jack of Denmark" → `jack-denmark`, "Naval jack of Denmark"
+ */
+export const ensignCode = (
+  category: EnsignCategory,
+  text: string,
+  caption: string,
+): { code: string; name: string } | null => {
+  if (isHistorical(text)) return null;
+
+  if (category === 'jacks') {
+    if (text in JACK_OVERRIDES) return JACK_OVERRIDES[text]!;
+    const match = text.match(/^(Naval|Coast Guard|Civil) jack of (.+?)(?:,.*)?$/i);
+    if (!match) return null;
+    const kind = match[1]!.toLowerCase();
+    const country = match[2]!.replace(/\s*\(i\.e\..*\)$/, '');
+    return {
+      code: slugify(['jack', kind === 'naval' ? '' : kind, countrySlug(country)].join(' ')),
+      name: `${kind.charAt(0).toUpperCase() + kind.slice(1)} jack of ${country}`,
+    };
+  }
+
+  const [, country = text, qualifier = ''] = text.match(/^(.+?)(?:\s*\((.+)\))?$/) ?? [];
+  if (category === 'civil-ensigns') {
+    // The caption on the image says which ensign it is; the gallery text names the country.
+    const kind = /yacht/i.test(caption)
+      ? 'yacht'
+      : /government/i.test(caption)
+        ? 'government'
+        : /reserve/i.test(caption)
+          ? 'reserve'
+          : 'civil';
+    const note = kind === 'yacht' ? qualifier.replace(/^yacht ensign;?\s*/i, '') : qualifier;
+    return {
+      code: slugify(`ensign ${kind} ${countrySlug(country)}`),
+      name: `${kind.charAt(0).toUpperCase() + kind.slice(1)} ensign of ${inSentence(country)}${note ? ` (${note})` : ''}`,
+    };
+  }
+
+  // Naval ensigns: the qualifier names the service ("Coast Guard", "naval auxiliary ships").
+  const kind = /coast guard|sea guard/i.test(qualifier)
+    ? 'coast guard'
+    : /auxiliary/i.test(qualifier)
+      ? 'auxiliary'
+      : 'naval';
+  const label = { auxiliary: 'Naval auxiliary', 'coast guard': 'Coast guard', naval: 'Naval' }[
+    kind
+  ];
+  return {
+    code: slugify(`ensign ${kind} ${countrySlug(country)}`),
+    name: `${label} ensign of ${inSentence(country)}`,
+  };
+};
+
+const ENSIGN_DESCRIPTIONS: Readonly<Record<EnsignCategory, string>> = {
+  'civil-ensigns': 'Flown at the stern by merchant and private vessels.',
+  jacks: 'Flown at the bow of naval vessels in harbour or at anchor.',
+  'naval-ensigns': 'Flown at the stern by warships and other state vessels.',
+};
+
+const scrapeEnsigns = async (): Promise<
+  Array<ScrapedSymbol & { category: NauticalSymbolCategory }>
+> => {
+  const entries: Array<{
+    category: EnsignCategory;
+    code: string;
+    description: string;
+    file: string;
+    name: string;
+  }> = [];
+
+  for (const { article, category, skip } of ENSIGN_SOURCES) {
+    const doc = parse(await fetchText(`${WIKIPEDIA_ORIGIN}/wiki/${article}`));
+    const files = new Set<string>();
+    for (const { figures, section, text } of galleryItems(doc)) {
+      if (!section || skip.test(section)) continue;
+      // The civil ensign galleries show the national flag first; the ensign is the last image.
+      const figure = figures
+        .filter((f) => !/^FIAV|vexillological/i.test(`${f.file} ${f.caption}`))
+        .at(-1);
+      if (!figure) continue;
+      if (!/\.svg$/i.test(figure.file)) {
+        console.warn(`  Warning: "${figure.file}" (${text}) is not an SVG; skipped.`);
+        continue;
+      }
+      const derived =
+        ENSIGN_FILE_OVERRIDES[figure.file] ?? ensignCode(category, text, figure.caption);
+      // A flag can appear in two sections (Hungary's civil ensign) or under two captions.
+      if (!derived || files.has(figure.file)) continue;
+      files.add(figure.file);
+      const note = SECTION_NOTES[section];
+      entries.push({
+        category,
+        code: derived.code,
+        description: [ENSIGN_DESCRIPTIONS[category], note].filter(Boolean).join(' '),
+        file: figure.file,
+        name: derived.name,
+      });
+    }
+  }
+
+  const info = await fetchFileInfo([...new Set(entries.map((e) => e.file))], {
+    allowMissing: true,
+  });
+  const symbols: Array<ScrapedSymbol & { category: NauticalSymbolCategory }> = [];
+  for (const { category, code, description, file, name } of entries) {
+    const fileInfo = info.get(file);
+    if (!fileInfo) {
+      console.warn(`  Warning: "${file}" (${code}) is not on Commons; skipped.`);
+      continue;
+    }
+    // The packages are MIT; GPL artwork cannot ship in them (see bin/draw-pennants.ts).
+    if (/GPL/i.test(fileInfo.license)) {
+      console.warn(`  Warning: "${file}" (${code}) is ${fileInfo.license}; skipped.`);
+      continue;
+    }
+    symbols.push({
+      ...fileInfo,
+      category,
+      code,
+      description: `${name}. ${description}`,
+      imageUrl: filePageUrl(file),
+      name,
+    });
+  }
+  return symbols;
+};
+
+// ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
 
 /**
- * Scrapes both sources and groups the symbols by category.
+ * Scrapes all sources and groups the symbols by category.
  *
  * @throws When a source cannot be fetched or two symbols resolve to the same code.
  */
 const scrape = async (): Promise<ScrapedData> => {
-  const all = [...(await scrapeFlags()), ...(await scrapeChart())];
+  const all = [...(await scrapeFlags()), ...(await scrapeEnsigns()), ...(await scrapeChart())];
 
   const result = Object.fromEntries(CATEGORIES.map((c) => [c, []])) as unknown as ScrapedData;
   const seen = new Map<string, string>();

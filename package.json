@@ -1,7 +1,7 @@
 {
   "name": "nautical-symbols-monorepo",
   "private": true,
-  "description": "GINETEX / ISO 3758 laundry care symbols for React, Vue 3, Web Components, CSS sprite and SVG sprite",
+  "description": "International Code of Signals flags, national ensigns and nautical chart symbols for React, Vue 3, Web Components, CSS sprite and SVG sprite",
   "workspaces": [
     "packages/@nautical-symbols/*",
     "apps/*"

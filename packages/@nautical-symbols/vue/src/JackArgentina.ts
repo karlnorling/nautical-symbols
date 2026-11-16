@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import { defineComponent } from 'vue';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { symbolProps } from './SymbolProps.js';
+import { renderSymbol, useInstanceId } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-342 -300 684 600\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"",
+  body: "<path fill=\"#75aadb\" d=\"M-342-300h684v600h-684z\"/><path fill=\"#fff\" d=\"M-205.25-163.9h411.5v327.8h-411.5z\"/><g id=\"jack-argentina-d\"><g id=\"jack-argentina-c\"><g id=\"jack-argentina-b\"><g id=\"jack-argentina-a\"><path fill=\"#fcbf49\" stroke=\"#843511\" stroke-width=\".753\" d=\"m-4.025-.009 3.012 80.061s0 1.506 1.004 1.506S.995 80.052.995 80.052L4.007-.009\"/><path fill=\"#fcbf49\" stroke=\"#843511\" stroke-width=\".753\" d=\"M-7.578 25.854c-4.611 10.075-.652 18.308-5.258 27.103s-1.727 16.04-2.035 20.075-3.61 5.156-2.777 6.094c.834.938 4.285-.921 5.632-6.281s-1.867-8.448 3.657-19.233c5.523-10.785 1.134-15.648 6.679-25.277\"/><path fill=\"#843511\" d=\"M-2.017-.009-.01 54.956 1.998-.009m-8.306 28.426c-3.577 10.029.191 16.686-4.611 25.185 5.336-6.086 1.818-13.972 6.479-24.293\"/></g><use xlink:href=\"#jack-argentina-a\" transform=\"rotate(180)\"/></g><use xlink:href=\"#jack-argentina-b\" transform=\"rotate(90)\"/></g><use xlink:href=\"#jack-argentina-c\" transform=\"rotate(45)\"/></g><use xlink:href=\"#jack-argentina-d\" transform=\"rotate(22.5)\"/><circle r=\"32.5\" fill=\"#fcbf49\" stroke=\"#843511\"/><g id=\"jack-argentina-e\" fill=\"#843511\"><path d=\"M20.569-7.036c-5.772-5.02-13.051-5.773-17.064-2.008a70.274 25.097 10 0 0 .753 13.3c-.251 0-.753.252-1.004.503A40.156 25.097 10 0 1 1.999-9.547c5.522-4.518 13.051-5.02 18.572 2.51\"/><path d=\"M11.534-8.542c-3.263 0-4.016.753-5.521 2.008-1.506 1.254-2.26 1.003-2.51 1.254-.251.251 0 1.004.502.753.502-.25 1.506-.753 3.011-2.008s3.012-1.254 4.518-1.254c4.517 0 7.027 3.764 7.529 3.513s-2.51-4.266-7.53-4.266\"/><path d=\"M17.306-4.277c-3.262-3.514-9.285-3.765-11.795.25h1.004c2.51-4.015 8.532-2.258 9.035-.501v.502\"/><circle cx=\"11\" cy=\"-4.5\" r=\"2.25\"/><path d=\"M5.512-4.023c2.51 2.258 8.031 2.51 11.796-.251l-1.756-.251c-2.51 2.76-6.526 2.51-9.035.502v-.502\"/><path d=\"M17.558-3.02C13.291.243 9.025-.008 6.515-1.514S4.005-3.52 4.507-3.52s1.004.501 3.012 1.505 5.02 1.004 10.039-1.004M5.258 4.51a1.506 1.506 0 1 1-2.007 1.506C3 6.518 1.996 8.024-.012 8.024h-.502l.502.753c.502 0 2.008 0 3.012-.753A2.259 2.259 0 1 0 5.258 4.51m3.013 10.541C6.013 13.545 5.01 11.286 2.5 11.286c-.502 0-1.506.251-2.51.753h-.501l.502.753c1.003 0 2.51-1.255 4.266-.251s2.76 2.008 4.016 2.51m-.755 0c-5.02-1.506-6.023-.502-7.529-.502h-.502l.502 1.004c2.008 0 3.012-1.506 7.53-.502\"/><path d=\"M8.271 15.051c-5.521-.502-3.764 2.76-8.282 2.76h-.502l.502.754c5.522 0 3.012-3.012 8.282-3.514\"/><path d=\"M4.509 23.08a4.518 4.518 0 1 0-9.035 0 4.643 4.643 0 0 1 9.035 0\"/></g><use xlink:href=\"#jack-argentina-e\" transform=\"scale(-1 1)\"/>",
+  height: "600",
+  width: "684",
+};
+const _title = "Naval jack of Argentina";
+const _description = "Naval jack of Argentina. Flown at the bow of naval vessels in harbour or at anchor. A jack of special design.";
+
+export const JackArgentina = defineComponent({
+  name: 'JackArgentina',
+  inheritAttrs: false,
+  props: symbolProps,
+  setup(props, { attrs }) {
+    const instanceId = useInstanceId();
+    return () =>
+      renderSymbol({
+        attrs,
+        description: props.description ?? _description,
+        height: props.height,
+        instanceId,
+        svg: _svg,
+        title: props.title ?? _title,
+        width: props.width,
+      });
+  },
+});

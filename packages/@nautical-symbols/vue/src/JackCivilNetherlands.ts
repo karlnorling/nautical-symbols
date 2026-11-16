@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import { defineComponent } from 'vue';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { symbolProps } from './SymbolProps.js';
+import { renderSymbol, useInstanceId } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1800 1200\"",
+  body: "<path fill=\"#ae1c28\" d=\"M0 0h1800v600H0z\"/><path fill=\"#21468b\" d=\"M0 600h1800v600H0z\"/><path fill=\"#fff\" d=\"M0 400v400l1800-400v400z\"/><path fill=\"#fff\" d=\"M590.625 0h618.75l-618.75 1200h618.75z\"/>",
+  height: "400",
+  width: "600",
+};
+const _title = "Civil jack of the Netherlands (unofficial)";
+const _description = "Civil jack of the Netherlands (unofficial). Flown at the bow of naval vessels in harbour or at anchor. A jack of special design.";
+
+export const JackCivilNetherlands = defineComponent({
+  name: 'JackCivilNetherlands',
+  inheritAttrs: false,
+  props: symbolProps,
+  setup(props, { attrs }) {
+    const instanceId = useInstanceId();
+    return () =>
+      renderSymbol({
+        attrs,
+        description: props.description ?? _description,
+        height: props.height,
+        instanceId,
+        svg: _svg,
+        title: props.title ?? _title,
+        width: props.width,
+      });
+  },
+});
