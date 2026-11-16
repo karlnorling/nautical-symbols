@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import { defineComponent } from 'vue';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { symbolProps } from './SymbolProps.js';
+import { renderSymbol, useInstanceId } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 324 216\"",
+  body: "<style>.s0{fill:#4189dd}.s1{fill:#fff}</style><path id=\"ensign-naval-somalia-Shape 1\" fill-rule=\"evenodd\" d=\"M324 0v216H0V0z\" class=\"s0\"/><g id=\"ensign-naval-somalia-Folder 1\"><path id=\"ensign-naval-somalia-path578-3\" fill-rule=\"evenodd\" d=\"M161.53 31h-.49c-14.77 1.97-20.97 21.01-7.86 32.31h-31.59l3 6.46q15.72 1.31 31.45 2.61l-1.68 67.69c-.17 6.98.85 6.76-3.78 11.81-12.58 13.74-25.29 14.99-33.57-5.35l6.15.92q-6.22-18.22-12.43-36.45c-6.24 14.76-8.68 30-5.01 45.99l4.86-8c6.86 24.98 35.79 21.64 50.95 36.15 15.15-14.51 44.08-11.17 50.94-36.15l4.86 8c3.67-15.99 1.23-31.23-5-45.99q-6.22 18.23-12.44 36.45l6.15-.92c-8.28 20.34-20.99 19.09-33.56 5.35-4.64-5.05-3.62-4.83-3.79-11.81q-.84-33.84-1.67-67.69 15.72-1.3 31.44-2.61l3-6.46h-31.58c13.1-11.3 6.9-30.34-7.87-32.31z\" class=\"s1\"/><g id=\"ensign-naval-somalia-g580-7\"><path id=\"ensign-naval-somalia-path582-0\" fill-rule=\"evenodd\" d=\"M133.93 149.91h3.89c1.05 0 1.91.86 1.91 1.91v6.48c0 1.05-.86 1.91-1.91 1.91h-3.89c-1.05 0-1.92-.86-1.92-1.91v-6.48c0-1.05.87-1.91 1.92-1.91\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g584-7\"><path id=\"ensign-naval-somalia-path586-3\" fill-rule=\"evenodd\" d=\"m135.89 137.37 3.76 1.12c1.01.3 1.63 1.38 1.37 2.41l-1.42 5.51a1.84 1.84 0 0 1-2.32 1.31l-3.75-1.12a2.01 2.01 0 0 1-1.37-2.4l1.42-5.51c.26-1.03 1.3-1.62 2.31-1.32\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g588-6\"><path id=\"ensign-naval-somalia-path590-6\" fill-rule=\"evenodd\" d=\"m143.34 127.34 2.77 2.95c.74.8.75 2.11 0 2.91l-3.57 3.87c-.74.8-1.96.81-2.7.01l-2.77-2.96c-.74-.79-.75-2.1 0-2.91l3.57-3.86c.74-.81 1.96-.81 2.7-.01\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g592-2\"><path id=\"ensign-naval-somalia-path594-6\" fill-rule=\"evenodd\" d=\"m150.28 118.34 2.76 2.95c.75.8.75 2.11 0 2.92l-3.57 3.86c-.74.8-1.96.81-2.7.01l-2.76-2.95c-.75-.8-.75-2.11-.01-2.92l3.57-3.86c.74-.8 1.96-.81 2.71-.01\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g596-4\"><path id=\"ensign-naval-somalia-path598-1\" fill-rule=\"evenodd\" d=\"M134.32 146.56c-.05.2-.23 3.99-.23 3.99l2.93-.03.28-3.89z\" class=\"s1\"/><path id=\"ensign-naval-somalia-path1906\" fill-rule=\"evenodd\" d=\"M134.32 159.36c-.05.2-.23 3.99-.23 3.99l2.93-.03.28-3.89z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g600-2\"><path id=\"ensign-naval-somalia-path602-6\" fill-rule=\"evenodd\" d=\"M138.36 134.46c-.15.13-2.33 3.11-2.33 3.11l2.4 1.8 2.33-3z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g604-8\"><path id=\"ensign-naval-somalia-path606-0\" fill-rule=\"evenodd\" d=\"M144.49 124.52c-.15.13-2.34 3.12-2.34 3.12l2.41 1.79 2.33-3z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g608-8\"><path id=\"ensign-naval-somalia-path610-8\" fill-rule=\"evenodd\" d=\"M154.99 111.98c-.14.13-5.76 6.81-5.76 6.81l2.41 1.8 3.97-4.77z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g612-6\"><path id=\"ensign-naval-somalia-path614-4\" fill-rule=\"evenodd\" d=\"m174.29 97.57 2.76 2.96c.75.79.75 2.1.01 2.91l-3.57 3.86c-.75.81-1.96.81-2.71.02l-2.76-2.96c-.75-.8-.75-2.11-.01-2.91l3.57-3.87c.75-.8 1.96-.81 2.71-.01\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g616-1\"><path id=\"ensign-naval-somalia-path618-6\" fill-rule=\"evenodd\" d=\"M175.32 94.8c-.14.13-2.33 3.11-2.33 3.11l2.41 1.8 3.39-3.69z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g620-6\"><path id=\"ensign-naval-somalia-path622-8\" fill-rule=\"evenodd\" d=\"m177.36 86.54 3.8.95c1.02.26 1.68 1.31 1.45 2.34l-1.2 5.58a1.84 1.84 0 0 1-2.27 1.4l-3.79-.95c-1.02-.25-1.68-1.31-1.46-2.34l1.21-5.58a1.837 1.837 0 0 1 2.26-1.4\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g624-8\"><path id=\"ensign-naval-somalia-path626-0\" fill-rule=\"evenodd\" d=\"M178.95 75.43h3.9c1.05 0 1.91.85 1.91 1.9v5.76c0 1.05-.86 1.91-1.91 1.91h-3.9c-1.05 0-1.91-.86-1.91-1.9v-5.76c0-1.05.86-1.91 1.91-1.91\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g628-3\"><path id=\"ensign-naval-somalia-path630-0\" fill-rule=\"evenodd\" d=\"M178.44 84.01c-.06.2-.27 4-.27 4h2.93l.32-3.89z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g632-3\"><path id=\"ensign-naval-somalia-path634-5\" fill-rule=\"evenodd\" d=\"M178.85 71.83c-.06.2-.27 3.99-.27 3.99h2.93l.32-3.89z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g636-6\"><path id=\"ensign-naval-somalia-path638-5\" fill-rule=\"evenodd\" d=\"M178.38 62.58h3.89c1.05 0 1.91.86 1.91 1.91v5.76c.01 1.05-.85 1.9-1.9 1.9l-3.9.01c-1.05 0-1.91-.86-1.91-1.91v-5.76c-.01-1.05.86-1.91 1.91-1.91\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g640-4\"><path id=\"ensign-naval-somalia-path642-2\" fill-rule=\"evenodd\" d=\"m172.15 56.09 2.97-2.72c.8-.74 2-.64 2.68.21l3.32 4.18c.67.86.57 2.15-.23 2.89l-2.96 2.72c-.8.73-2.01.64-2.68-.22l-3.32-4.18c-.68-.85-.57-2.15.22-2.88\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g644-9\"><path id=\"ensign-naval-somalia-path646-6\" fill-rule=\"evenodd\" d=\"M161.53 58.53c-5.86 0-10.6-5.12-10.6-11.46 0-6.33 4.74-11.45 10.6-11.45s10.59 5.12 10.59 11.45c0 6.34-4.73 11.46-10.59 11.46\" class=\"s0\"/></g><path id=\"ensign-naval-somalia-path648-7\" fill-rule=\"evenodd\" d=\"M157.95 51.64h7.15v13.49h-7.15z\" class=\"s1\"/><g id=\"ensign-naval-somalia-g650-5\"><path id=\"ensign-naval-somalia-path652-5\" fill-rule=\"evenodd\" d=\"M170.76 102.23c-.15.13-5.77 6.8-5.77 6.8l2.41 1.8 3.97-4.77z\" class=\"s1\"/></g><g id=\"ensign-naval-somalia-g654\"><path id=\"ensign-naval-somalia-path656\" fill-rule=\"evenodd\" d=\"M133.85 170.33h3.9c1.05 0 1.91.85 1.91 1.9v5.76c0 1.05-.86 1.91-1.91 1.91h-3.9c-1.05 0-1.91-.86-1.91-1.91v-5.76c0-1.05.86-1.9 1.91-1.9\" class=\"s1\"/></g></g>",
+  height: "216",
+  width: "324",
+};
+const _title = "Naval ensign of Somalia";
+const _description = "Naval ensign of Somalia. Flown at the stern by warships and other state vessels.";
+
+export const EnsignNavalSomalia = defineComponent({
+  name: 'EnsignNavalSomalia',
+  inheritAttrs: false,
+  props: symbolProps,
+  setup(props, { attrs }) {
+    const instanceId = useInstanceId();
+    return () =>
+      renderSymbol({
+        attrs,
+        description: props.description ?? _description,
+        height: props.height,
+        instanceId,
+        svg: _svg,
+        title: props.title ?? _title,
+        width: props.width,
+      });
+  },
+});

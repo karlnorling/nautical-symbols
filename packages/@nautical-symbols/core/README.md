@@ -48,7 +48,7 @@ Returns a single symbol by its slug ID (e.g. `"flag-alfa"`), or `undefined` if n
 
 ### `getSymbolsByCategory(category: NauticalSymbolCategory): NauticalSymbol[]`
 
-Returns all symbols in a category. See `NauticalSymbolCategory` for the 15 categories; `getSymbolsByGroup("flags" | "chart")` splits signal flags from chart symbols.
+Returns all symbols in a category. See `NauticalSymbolCategory` for the 18 categories; `getSymbolsByGroup("flags" | "ensigns" | "chart")` splits signal flags, ensigns and chart symbols.
 
 ---
 
@@ -60,6 +60,9 @@ type NauticalSymbolCategory =
   | 'number-pennants'
   | 'nato-number-flags'
   | 'special-pennants'
+  | 'civil-ensigns'
+  | 'naval-ensigns'
+  | 'jacks'
   | 'cardinal-marks'
   | 'lateral-marks'
   | 'isolated-danger-marks'

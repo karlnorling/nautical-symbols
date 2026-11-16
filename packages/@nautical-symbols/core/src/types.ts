@@ -12,6 +12,11 @@
  * - `nato-number-flags`     — the NATO numeral flags 0–9
  * - `special-pennants`      — the answer (code) pennant and the four substitutes
  *
+ * Ensigns (per country):
+ * - `civil-ensigns`         — civil, government, reserve and yacht ensigns
+ * - `naval-ensigns`         — naval, naval auxiliary and coast guard ensigns
+ * - `jacks`                 — naval and civil jacks, flown at the bow
+ *
  * Chart symbols (INT 1 / ECDIS):
  * - `cardinal-marks`        — north, east, south and west cardinal marks
  * - `lateral-marks`         — red and green port / starboard buoys and beacons
@@ -30,6 +35,9 @@ export type NauticalSymbolCategory =
   | 'number-pennants'
   | 'nato-number-flags'
   | 'special-pennants'
+  | 'civil-ensigns'
+  | 'naval-ensigns'
+  | 'jacks'
   | 'cardinal-marks'
   | 'lateral-marks'
   | 'isolated-danger-marks'
@@ -42,8 +50,8 @@ export type NauticalSymbolCategory =
   | 'harbour'
   | 'other';
 
-/** The two symbol families: signal flags, and chart symbols. */
-export type NauticalSymbolGroup = 'flags' | 'chart';
+/** The symbol families: signal flags, national ensigns and jacks, and chart symbols. */
+export type NauticalSymbolGroup = 'flags' | 'ensigns' | 'chart';
 
 /**
  * Pre-built image asset paths for a symbol, relative to the package `assets/` directory.
@@ -71,7 +79,10 @@ export interface NauticalSymbol {
   category: NauticalSymbolCategory;
   /** Stable symbol code, e.g. `"flag-alfa"` or `"chart-can-buoy-red"`. */
   code: string;
-  /** Longer description: the ICS meaning for a flag, the chart style for a chart symbol. */
+  /**
+   * Longer description: the ICS meaning for a flag, where an ensign or jack is
+   * flown, the chart style for a chart symbol.
+   */
   description: string;
   /** Symbol family — see {@link NauticalSymbolGroup}. */
   group: NauticalSymbolGroup;

@@ -1,6 +1,6 @@
 # Nautical Symbols
 
-Accessible, framework-agnostic packages for **International Code of Signals flags** and **nautical chart symbols** — React components, Vue components, Web Components (Custom Elements), CSS sprite, SVG sprite, and static image assets.
+Accessible, framework-agnostic packages for **International Code of Signals flags**, **national ensigns and jacks**, and **nautical chart symbols** — React components, Vue components, Web Components (Custom Elements), CSS sprite, SVG sprite, and static image assets.
 
 [![CI](https://github.com/karlnorling/nautical-symbols/actions/workflows/ci.yml/badge.svg)](https://github.com/karlnorling/nautical-symbols/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -25,7 +25,7 @@ Accessible, framework-agnostic packages for **International Code of Signals flag
 
 ## Symbol categories
 
-273 symbols in two groups (`getSymbolsByGroup('flags' | 'chart')`).
+545 symbols in three groups (`getSymbolsByGroup('flags' | 'ensigns' | 'chart')`).
 
 **Signal flags** — from [International maritime signal flags](https://en.wikipedia.org/wiki/International_maritime_signal_flags):
 
@@ -37,6 +37,16 @@ Accessible, framework-agnostic packages for **International Code of Signals flag
 | `special-pennants`  | 5       | `pennant-answer`, `substitute-1` … `substitute-4` |
 
 Each letter flag's `description` is its ICS single-flag meaning, plus its meaning with a numeric complement where it has one.
+
+**Ensigns** — the flags vessels fly to show their nationality, from the galleries in the Wikipedia articles [Civil ensign](https://en.wikipedia.org/wiki/Civil_ensign), [Naval ensign](https://en.wikipedia.org/wiki/Naval_ensign) and [Jack (flag)](<https://en.wikipedia.org/wiki/Jack_(flag)>):
+
+| Category        | Symbols | Example IDs                                                                        |
+| --------------- | ------- | ---------------------------------------------------------------------------------- |
+| `civil-ensigns` | 82      | `ensign-civil-united-kingdom`, `ensign-government-sri-lanka`, `ensign-yacht-spain` |
+| `naval-ensigns` | 104     | `ensign-naval-japan`, `ensign-coast-guard-united-states`, `ensign-auxiliary-india` |
+| `jacks`         | 86      | `jack-netherlands`, `jack-civil-united-kingdom`, `jack-coast-guard-canada`         |
+
+The articles only list countries whose ensign differs from the national flag; a country that flies its national flag at sea has no entry. Former and historical flags are left out, and so are a few that exist only as PNG or only on English Wikipedia. Ensign IDs are derived from the country in the gallery caption.
 
 **Chart symbols** — from the Wikimedia Commons category [Nautical Chart Icons](https://commons.wikimedia.org/wiki/Category:Nautical_Chart_Icons) (its SVG sub-category):
 
@@ -191,7 +201,7 @@ yarn update
 
 This runs three steps in sequence:
 
-1. **scrape** — reads the flag tables from the [International maritime signal flags](https://en.wikipedia.org/wiki/International_maritime_signal_flags) article, lists the [SVG Nautical Chart icons](https://commons.wikimedia.org/wiki/Category:SVG_Nautical_Chart_icons) category, and looks up each file's URL and licence through the Commons API
+1. **scrape** — reads the flag tables from the [International maritime signal flags](https://en.wikipedia.org/wiki/International_maritime_signal_flags) article, the ensign and jack galleries from [Civil ensign](https://en.wikipedia.org/wiki/Civil_ensign), [Naval ensign](https://en.wikipedia.org/wiki/Naval_ensign) and [Jack (flag)](<https://en.wikipedia.org/wiki/Jack_(flag)>), lists the [SVG Nautical Chart icons](https://commons.wikimedia.org/wiki/Category:SVG_Nautical_Chart_icons) category, and looks up each file's URL and licence through the Commons API
 2. **create-assets** — downloads SVGs and converts them to PNG, JPG, and WebP at 240/512/768/1024/2048 px
 3. **generate** — generates TypeScript source for all packages
 
@@ -223,10 +233,14 @@ MIT © [Karl Norling](https://github.com/karlnorling)
 
 > **Artwork licences:** the code in this repository is MIT-licensed; the SVG artwork is not. It comes from Wikimedia Commons under several licences, recorded per symbol in `license` (with the Commons page in `source`):
 >
-> | Licence       | Symbols                                                                                       |
-> | ------------- | --------------------------------------------------------------------------------------------- |
-> | Public domain | letter flags, NATO number flags, answer pennant, substitutes, INT 1 and ECDIS chart symbols   |
-> | CC0           | ICS number pennants `pennant-0` … `pennant-9` (drawn for this project), `chart-pilot-station` |
-> | CC BY-SA 4.0  | topmarks, the `light-*` symbols — attribution and share-alike apply                           |
+> | Licence                    | Symbols                                                                                                                |
+> | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+> | Public domain              | letter flags, NATO number flags, answer pennant, substitutes, INT 1 and ECDIS chart symbols, most ensigns and jacks    |
+> | CC0                        | ICS number pennants `pennant-0` … `pennant-9` (drawn for this project), `chart-pilot-station`, a few ensigns and jacks |
+> | CC BY-SA 4.0               | topmarks, the `light-*` symbols, some ensigns and jacks — attribution and share-alike apply                            |
+> | CC BY-SA 3.0, CC BY-SA 2.5 | some ensigns and jacks — attribution and share-alike apply                                                             |
+> | CC BY 3.0                  | `ensign-naval-georgia` — attribution applies                                                                           |
+>
+> GPL-licensed files on Commons are skipped by the scraper, because they can't ship in MIT packages.
 >
 > Every package ships a generated `NOTICE.md` with the per-symbol attribution. Check a symbol's licence before you redistribute it.

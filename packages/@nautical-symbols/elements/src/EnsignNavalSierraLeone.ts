@@ -1,0 +1,23 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { SymbolElement } from './SymbolElement.js';
+import type { SymbolElementContent } from './SymbolElement.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 12\"",
+  body: "<path fill=\"#fff\" d=\"M0 0h18v12H0z\"/><path fill=\"#0072c6\" d=\"M0 4h9v2H0z\"/><path fill=\"#1eb53a\" d=\"M0 0h9v2H0z\"/>",
+  height: "800",
+  width: "1200",
+};
+const _title = "Naval ensign of Sierra Leone";
+const _description = "Naval ensign of Sierra Leone. Flown at the stern by warships and other state vessels.";
+
+export class EnsignNavalSierraLeone extends SymbolElement {
+  static readonly tagName = 'nautical-ensign-naval-sierra-leone';
+
+  protected content(): SymbolElementContent {
+    return { description: _description, svg: _svg, title: _title };
+  }
+}

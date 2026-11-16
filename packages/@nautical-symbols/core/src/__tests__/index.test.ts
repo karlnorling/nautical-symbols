@@ -84,12 +84,33 @@ describe('symbol data', () => {
     expect(getSymbol('flag-alfa')?.description).toContain('diver down');
   });
 
-  it('groups split flags from chart symbols', () => {
+  it('groups split flags, ensigns and chart symbols', () => {
     const flags = getSymbolsByGroup('flags');
+    const ensigns = getSymbolsByGroup('ensigns');
     const chart = getSymbolsByGroup('chart');
-    expect(flags.length + chart.length).toBe(symbols.length);
+    expect(flags.length + ensigns.length + chart.length).toBe(symbols.length);
     expect(flags.every((s) => s.id !== 'chart-can-buoy-red')).toBe(true);
     expect(chart.some((s) => s.id === 'chart-can-buoy-red')).toBe(true);
+    expect(ensigns.map((s) => s.category).sort()).toEqual(
+      [
+        ...getSymbolsByCategory('civil-ensigns'),
+        ...getSymbolsByCategory('naval-ensigns'),
+        ...getSymbolsByCategory('jacks'),
+      ]
+        .map((s) => s.category)
+        .sort(),
+    );
+  });
+
+  it('has per-country civil ensigns, naval ensigns and jacks', () => {
+    expect(getSymbolsByCategory('civil-ensigns').length).toBeGreaterThan(50);
+    expect(getSymbolsByCategory('naval-ensigns').length).toBeGreaterThan(50);
+    expect(getSymbolsByCategory('jacks').length).toBeGreaterThan(50);
+    expect(getSymbol('ensign-civil-united-kingdom')?.name).toBe(
+      'Civil ensign of United Kingdom',
+    );
+    expect(getSymbol('ensign-naval-united-kingdom')?.group).toBe('ensigns');
+    expect(getSymbol('jack-united-kingdom')?.description).toContain('bow');
   });
 
   it('every symbol records its licence and Commons source page', () => {

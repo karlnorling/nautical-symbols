@@ -49,8 +49,14 @@ const FLAG_CATEGORIES: ReadonlySet<NauticalSymbolCategory> = new Set([
   'special-pennants',
 ]);
 
+const ENSIGN_CATEGORIES: ReadonlySet<NauticalSymbolCategory> = new Set([
+  'civil-ensigns',
+  'naval-ensigns',
+  'jacks',
+]);
+
 const groupOf = (category: NauticalSymbolCategory): NauticalSymbolGroup =>
-  FLAG_CATEGORIES.has(category) ? 'flags' : 'chart';
+  FLAG_CATEGORIES.has(category) ? 'flags' : ENSIGN_CATEGORIES.has(category) ? 'ensigns' : 'chart';
 
 const IMAGE_SIZES = [240, 512, 768, 1024, 2048] as const;
 

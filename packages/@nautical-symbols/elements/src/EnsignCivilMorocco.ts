@@ -1,0 +1,23 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { SymbolElement } from './SymbolElement.js';
+import type { SymbolElementContent } from './SymbolElement.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 90000 60000\"",
+  body: "<path fill=\"#c1272d\" d=\"M0 0h90000v60000H0z\"/><path fill=\"none\" stroke=\"#006233\" stroke-width=\"1426\" d=\"m45000 17308 7460 22960-19531-14190h24142L37540 40268z\"/><path d=\"M10470.55 7500.809c-3915.669 113.974-3522.087 3792.868-1339.806 7499.195 2312.525-347.023 4095.25-263.13 5869.625-263.13s3557.1-83.893 5869.626 263.13c2216.92-3765.157 2586.179-7499.195-1531.207-7499.195-1614.939 0-3356.146 2105.037-4338.419 2105.037s-2723.48-2105.037-4338.419-2105.037c-64.335 0-129.247-1.8-191.4 0m263.175 3157.555c59.408-2.55 119.457 0 183.427 0 2132.457 0 3381.415 2368.167 3381.415 2368.167-1452.698 0-3240.489 158.058-4282.594 172.68-334.402-167.631-1757.657-2434.74 717.752-2540.847m8198.336 0c49.005-2.55 101.546 0 151.526 0 2729.325 0 1243.606 2369.194 901.179 2540.847-1042.105-14.625-2829.897-172.68-4282.593-172.68 0 0 1188.049-2262.302 3229.888-2368.167M15000 2250l619.733 2005.241 2005.266.082-1622.25 1239.387 619.59 2005.289-1622.34-1239.257L13377.662 7500l619.59-2005.29L12375 4255.324l2005.265-.082z\" style=\"fill:#fdb913;fill-opacity:1;fill-rule:evenodd;stroke:none\"/>",
+  height: "600",
+  width: "900",
+};
+const _title = "Civil ensign of Morocco";
+const _description = "Civil ensign of Morocco. Flown at the stern by merchant and private vessels. The national flag with an added emblem.";
+
+export class EnsignCivilMorocco extends SymbolElement {
+  static readonly tagName = 'nautical-ensign-civil-morocco';
+
+  protected content(): SymbolElementContent {
+    return { description: _description, svg: _svg, title: _title };
+  }
+}

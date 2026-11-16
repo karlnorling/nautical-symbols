@@ -42,7 +42,7 @@ interface GridProps {
 
 const SpriteGrid = ({ size = 96, category }: GridProps) => {
   const symbols =
-    category === 'flags' || category === 'chart'
+    category === 'flags' || category === 'ensigns' || category === 'chart'
       ? getSymbolsByGroup(category)
       : category
         ? getSymbolsByCategory(category as Parameters<typeof getSymbolsByCategory>[0])
@@ -110,6 +110,12 @@ export const SignalFlags: StoryObj<GridProps> = {
   args: { size: 96 },
 };
 
+export const Ensigns: StoryObj<GridProps> = {
+  name: 'Ensigns and jacks',
+  render: ({ size }) => <SpriteGrid size={size} category="ensigns" />,
+  args: { size: 96 },
+};
+
 export const ChartSymbols: StoryObj<GridProps> = {
   name: 'Chart symbols',
   render: ({ size }) => <SpriteGrid size={size} category="chart" />,
@@ -137,6 +143,24 @@ export const NatoNumberFlags: StoryObj<GridProps> = {
 export const SpecialPennants: StoryObj<GridProps> = {
   name: 'Answer pennant and substitutes',
   render: ({ size }) => <SpriteGrid size={size} category="special-pennants" />,
+  args: { size: 96 },
+};
+
+export const CivilEnsigns: StoryObj<GridProps> = {
+  name: 'Civil ensigns',
+  render: ({ size }) => <SpriteGrid size={size} category="civil-ensigns" />,
+  args: { size: 96 },
+};
+
+export const NavalEnsigns: StoryObj<GridProps> = {
+  name: 'Naval and coast guard ensigns',
+  render: ({ size }) => <SpriteGrid size={size} category="naval-ensigns" />,
+  args: { size: 96 },
+};
+
+export const Jacks: StoryObj<GridProps> = {
+  name: 'Jacks',
+  render: ({ size }) => <SpriteGrid size={size} category="jacks" />,
   args: { size: 96 },
 };
 

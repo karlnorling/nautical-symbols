@@ -53,6 +53,278 @@ import { Substitute1 } from './Substitute1.js';
 import { Substitute2 } from './Substitute2.js';
 import { Substitute3 } from './Substitute3.js';
 import { Substitute4 } from './Substitute4.js';
+import { EnsignCivilAustralia } from './EnsignCivilAustralia.js';
+import { EnsignCivilBangladesh } from './EnsignCivilBangladesh.js';
+import { EnsignCivilBahamas } from './EnsignCivilBahamas.js';
+import { EnsignCivilFiji } from './EnsignCivilFiji.js';
+import { EnsignCivilIndia } from './EnsignCivilIndia.js';
+import { EnsignCivilJamaica } from './EnsignCivilJamaica.js';
+import { EnsignCivilMalaysia } from './EnsignCivilMalaysia.js';
+import { EnsignCivilMauritius } from './EnsignCivilMauritius.js';
+import { EnsignCivilNewZealand } from './EnsignCivilNewZealand.js';
+import { EnsignCivilNigeria } from './EnsignCivilNigeria.js';
+import { EnsignCivilPakistan } from './EnsignCivilPakistan.js';
+import { EnsignCivilSaudiArabia } from './EnsignCivilSaudiArabia.js';
+import { EnsignCivilSolomonIslands } from './EnsignCivilSolomonIslands.js';
+import { EnsignCivilSriLanka } from './EnsignCivilSriLanka.js';
+import { EnsignCivilUnitedArabEmirates } from './EnsignCivilUnitedArabEmirates.js';
+import { EnsignCivilUnitedKingdom } from './EnsignCivilUnitedKingdom.js';
+import { EnsignCivilBritishVirginIslands } from './EnsignCivilBritishVirginIslands.js';
+import { EnsignCivilCaymanIslands } from './EnsignCivilCaymanIslands.js';
+import { EnsignCivilFalklandIslands } from './EnsignCivilFalklandIslands.js';
+import { EnsignCivilGibraltar } from './EnsignCivilGibraltar.js';
+import { EnsignCivilGuernsey } from './EnsignCivilGuernsey.js';
+import { EnsignCivilIsleOfMan } from './EnsignCivilIsleOfMan.js';
+import { EnsignCivilJersey } from './EnsignCivilJersey.js';
+import { EnsignCivilTurksAndCaicosIslands } from './EnsignCivilTurksAndCaicosIslands.js';
+import { EnsignGovernmentUnitedKingdom } from './EnsignGovernmentUnitedKingdom.js';
+import { EnsignReserveIndia } from './EnsignReserveIndia.js';
+import { EnsignGovernmentSriLanka } from './EnsignGovernmentSriLanka.js';
+import { EnsignCivilAlbania } from './EnsignCivilAlbania.js';
+import { EnsignCivilIsrael } from './EnsignCivilIsrael.js';
+import { EnsignCivilLuxembourg } from './EnsignCivilLuxembourg.js';
+import { EnsignCivilMaine } from './EnsignCivilMaine.js';
+import { EnsignCivilMalta } from './EnsignCivilMalta.js';
+import { EnsignCivilMonaco } from './EnsignCivilMonaco.js';
+import { EnsignCivilPhilippines } from './EnsignCivilPhilippines.js';
+import { EnsignCivilSingapore } from './EnsignCivilSingapore.js';
+import { EnsignCivilColombia } from './EnsignCivilColombia.js';
+import { EnsignCivilElSalvador } from './EnsignCivilElSalvador.js';
+import { EnsignCivilItaly } from './EnsignCivilItaly.js';
+import { EnsignCivilMorocco } from './EnsignCivilMorocco.js';
+import { EnsignCivilPoland } from './EnsignCivilPoland.js';
+import { EnsignYachtUnitedStates } from './EnsignYachtUnitedStates.js';
+import { EnsignYachtFinland } from './EnsignYachtFinland.js';
+import { EnsignYachtSpain } from './EnsignYachtSpain.js';
+import { EnsignCivilAndorra } from './EnsignCivilAndorra.js';
+import { EnsignCivilArgentina } from './EnsignCivilArgentina.js';
+import { EnsignCivilAustria } from './EnsignCivilAustria.js';
+import { EnsignCivilBadenWurttemberg } from './EnsignCivilBadenWurttemberg.js';
+import { EnsignCivilBolivia } from './EnsignCivilBolivia.js';
+import { EnsignCivilBremen } from './EnsignCivilBremen.js';
+import { EnsignCivilCostaRica } from './EnsignCivilCostaRica.js';
+import { EnsignCivilDominicanRepublic } from './EnsignCivilDominicanRepublic.js';
+import { EnsignCivilEcuador } from './EnsignCivilEcuador.js';
+import { EnsignCivilElSalvadorPlain } from './EnsignCivilElSalvadorPlain.js';
+import { EnsignCivilEthiopia } from './EnsignCivilEthiopia.js';
+import { EnsignCivilFinland } from './EnsignCivilFinland.js';
+import { EnsignCivilGermany } from './EnsignCivilGermany.js';
+import { EnsignCivilGuatemala } from './EnsignCivilGuatemala.js';
+import { EnsignCivilHaiti } from './EnsignCivilHaiti.js';
+import { EnsignCivilHesse } from './EnsignCivilHesse.js';
+import { EnsignCivilHungary } from './EnsignCivilHungary.js';
+import { EnsignCivilMecklenburgVorpommern } from './EnsignCivilMecklenburgVorpommern.js';
+import { EnsignCivilNorthRhineWestphalia } from './EnsignCivilNorthRhineWestphalia.js';
+import { EnsignCivilPeru } from './EnsignCivilPeru.js';
+import { EnsignCivilRomania } from './EnsignCivilRomania.js';
+import { EnsignCivilSanMarino } from './EnsignCivilSanMarino.js';
+import { EnsignCivilSaxony } from './EnsignCivilSaxony.js';
+import { EnsignCivilSchleswigHolstein } from './EnsignCivilSchleswigHolstein.js';
+import { EnsignCivilSerbia } from './EnsignCivilSerbia.js';
+import { EnsignCivilSpain } from './EnsignCivilSpain.js';
+import { EnsignCivilTajikistan } from './EnsignCivilTajikistan.js';
+import { EnsignCivilThuringia } from './EnsignCivilThuringia.js';
+import { EnsignCivilTransnistria } from './EnsignCivilTransnistria.js';
+import { EnsignCivilVenezuela } from './EnsignCivilVenezuela.js';
+import { EnsignCivilBerlin } from './EnsignCivilBerlin.js';
+import { EnsignCivilHamburg } from './EnsignCivilHamburg.js';
+import { EnsignCivilBelgium } from './EnsignCivilBelgium.js';
+import { EnsignCivilCroatia } from './EnsignCivilCroatia.js';
+import { EnsignCivilGrenada } from './EnsignCivilGrenada.js';
+import { EnsignCivilLowerSaxony } from './EnsignCivilLowerSaxony.js';
+import { EnsignCivilSlovenia } from './EnsignCivilSlovenia.js';
+import { EnsignCivilSwitzerland } from './EnsignCivilSwitzerland.js';
+import { EnsignCivilTrinidadAndTobago } from './EnsignCivilTrinidadAndTobago.js';
+import { EnsignNavalAbkhazia } from './EnsignNavalAbkhazia.js';
+import { EnsignNavalAlbania } from './EnsignNavalAlbania.js';
+import { EnsignCoastGuardAlbania } from './EnsignCoastGuardAlbania.js';
+import { EnsignNavalAlgeria } from './EnsignNavalAlgeria.js';
+import { EnsignNavalAustralia } from './EnsignNavalAustralia.js';
+import { EnsignNavalAzerbaijan } from './EnsignNavalAzerbaijan.js';
+import { EnsignCoastGuardAzerbaijan } from './EnsignCoastGuardAzerbaijan.js';
+import { EnsignNavalBahamas } from './EnsignNavalBahamas.js';
+import { EnsignAuxiliaryBahamas } from './EnsignAuxiliaryBahamas.js';
+import { EnsignNavalBangladesh } from './EnsignNavalBangladesh.js';
+import { EnsignCoastGuardBangladesh } from './EnsignCoastGuardBangladesh.js';
+import { EnsignNavalBarbados } from './EnsignNavalBarbados.js';
+import { EnsignNavalBelgium } from './EnsignNavalBelgium.js';
+import { EnsignNavalBolivia } from './EnsignNavalBolivia.js';
+import { EnsignNavalBrunei } from './EnsignNavalBrunei.js';
+import { EnsignNavalBulgaria } from './EnsignNavalBulgaria.js';
+import { EnsignCoastGuardBulgaria } from './EnsignCoastGuardBulgaria.js';
+import { EnsignNavalCanada } from './EnsignNavalCanada.js';
+import { EnsignAuxiliaryCanada } from './EnsignAuxiliaryCanada.js';
+import { EnsignNavalChina } from './EnsignNavalChina.js';
+import { EnsignNavalColombia } from './EnsignNavalColombia.js';
+import { EnsignNavalCostaRica } from './EnsignNavalCostaRica.js';
+import { EnsignNavalCroatia } from './EnsignNavalCroatia.js';
+import { EnsignNavalDenmark } from './EnsignNavalDenmark.js';
+import { EnsignNavalDominicanRepublic } from './EnsignNavalDominicanRepublic.js';
+import { EnsignNavalEgypt } from './EnsignNavalEgypt.js';
+import { EnsignNavalEstonia } from './EnsignNavalEstonia.js';
+import { EnsignNavalFiji } from './EnsignNavalFiji.js';
+import { EnsignNavalFinland } from './EnsignNavalFinland.js';
+import { EnsignNavalFrance } from './EnsignNavalFrance.js';
+import { EnsignNavalGambia } from './EnsignNavalGambia.js';
+import { EnsignNavalGeorgia } from './EnsignNavalGeorgia.js';
+import { EnsignNavalGhana } from './EnsignNavalGhana.js';
+import { EnsignNavalGermany } from './EnsignNavalGermany.js';
+import { EnsignNavalGrenada } from './EnsignNavalGrenada.js';
+import { EnsignNavalGuyana } from './EnsignNavalGuyana.js';
+import { EnsignCoastGuardGreece } from './EnsignCoastGuardGreece.js';
+import { EnsignNavalHonduras } from './EnsignNavalHonduras.js';
+import { EnsignNavalHungary } from './EnsignNavalHungary.js';
+import { EnsignNavalIceland } from './EnsignNavalIceland.js';
+import { EnsignNavalIndia } from './EnsignNavalIndia.js';
+import { EnsignAuxiliaryIndia } from './EnsignAuxiliaryIndia.js';
+import { EnsignCoastGuardIndia } from './EnsignCoastGuardIndia.js';
+import { EnsignNavalIsrael } from './EnsignNavalIsrael.js';
+import { EnsignNavalItaly } from './EnsignNavalItaly.js';
+import { EnsignNavalJamaica } from './EnsignNavalJamaica.js';
+import { EnsignNavalJapan } from './EnsignNavalJapan.js';
+import { EnsignCoastGuardJapan } from './EnsignCoastGuardJapan.js';
+import { EnsignNavalJordan } from './EnsignNavalJordan.js';
+import { EnsignNavalKazakhstan } from './EnsignNavalKazakhstan.js';
+import { EnsignNavalKenya } from './EnsignNavalKenya.js';
+import { EnsignNavalLatvia } from './EnsignNavalLatvia.js';
+import { EnsignNavalLibya } from './EnsignNavalLibya.js';
+import { EnsignNavalLithuania } from './EnsignNavalLithuania.js';
+import { EnsignNavalMalaysia } from './EnsignNavalMalaysia.js';
+import { EnsignNavalMauritius } from './EnsignNavalMauritius.js';
+import { EnsignNavalMonaco } from './EnsignNavalMonaco.js';
+import { EnsignNavalMontenegro } from './EnsignNavalMontenegro.js';
+import { EnsignNavalMorocco } from './EnsignNavalMorocco.js';
+import { EnsignNavalMyanmar } from './EnsignNavalMyanmar.js';
+import { EnsignNavalNamibia } from './EnsignNavalNamibia.js';
+import { EnsignNavalNewZealand } from './EnsignNavalNewZealand.js';
+import { EnsignNavalNigeria } from './EnsignNavalNigeria.js';
+import { EnsignNavalNorthKorea } from './EnsignNavalNorthKorea.js';
+import { EnsignNavalNorway } from './EnsignNavalNorway.js';
+import { EnsignNavalOman } from './EnsignNavalOman.js';
+import { EnsignNavalPakistan } from './EnsignNavalPakistan.js';
+import { EnsignNavalPapuaNewGuinea } from './EnsignNavalPapuaNewGuinea.js';
+import { EnsignNavalPeru } from './EnsignNavalPeru.js';
+import { EnsignNavalPoland } from './EnsignNavalPoland.js';
+import { EnsignAuxiliaryPoland } from './EnsignAuxiliaryPoland.js';
+import { EnsignCoastGuardPoland } from './EnsignCoastGuardPoland.js';
+import { EnsignNavalRussia } from './EnsignNavalRussia.js';
+import { EnsignAuxiliaryRussia } from './EnsignAuxiliaryRussia.js';
+import { EnsignCoastGuardRussia } from './EnsignCoastGuardRussia.js';
+import { EnsignNavalSaintKittsAndNevis } from './EnsignNavalSaintKittsAndNevis.js';
+import { EnsignNavalSaudiArabia } from './EnsignNavalSaudiArabia.js';
+import { EnsignNavalSerbia } from './EnsignNavalSerbia.js';
+import { EnsignNavalSierraLeone } from './EnsignNavalSierraLeone.js';
+import { EnsignNavalSingapore } from './EnsignNavalSingapore.js';
+import { EnsignNavalSolomonIslands } from './EnsignNavalSolomonIslands.js';
+import { EnsignNavalSomalia } from './EnsignNavalSomalia.js';
+import { EnsignNavalSomaliland } from './EnsignNavalSomaliland.js';
+import { EnsignNavalSouthAfrica } from './EnsignNavalSouthAfrica.js';
+import { EnsignNavalSriLanka } from './EnsignNavalSriLanka.js';
+import { EnsignCoastGuardSriLanka } from './EnsignCoastGuardSriLanka.js';
+import { EnsignNavalSudan } from './EnsignNavalSudan.js';
+import { EnsignNavalSweden } from './EnsignNavalSweden.js';
+import { EnsignNavalThailand } from './EnsignNavalThailand.js';
+import { EnsignNavalTonga } from './EnsignNavalTonga.js';
+import { EnsignNavalTrinidadAndTobago } from './EnsignNavalTrinidadAndTobago.js';
+import { EnsignNavalTurkmenistan } from './EnsignNavalTurkmenistan.js';
+import { EnsignNavalUkraine } from './EnsignNavalUkraine.js';
+import { EnsignAuxiliaryUkraine } from './EnsignAuxiliaryUkraine.js';
+import { EnsignCoastGuardUkraine } from './EnsignCoastGuardUkraine.js';
+import { EnsignNavalUnitedKingdom } from './EnsignNavalUnitedKingdom.js';
+import { EnsignAuxiliaryUnitedKingdom } from './EnsignAuxiliaryUnitedKingdom.js';
+import { EnsignCoastGuardUnitedKingdom } from './EnsignCoastGuardUnitedKingdom.js';
+import { EnsignCoastGuardUnitedStates } from './EnsignCoastGuardUnitedStates.js';
+import { EnsignNavalUzbekistan } from './EnsignNavalUzbekistan.js';
+import { EnsignNavalVanuatu } from './EnsignNavalVanuatu.js';
+import { EnsignNavalVenezuela } from './EnsignNavalVenezuela.js';
+import { EnsignNavalVietnam } from './EnsignNavalVietnam.js';
+import { EnsignNavalYemen } from './EnsignNavalYemen.js';
+import { JackDenmark } from './JackDenmark.js';
+import { JackEgypt } from './JackEgypt.js';
+import { JackGermany } from './JackGermany.js';
+import { JackCoastGuardIceland } from './JackCoastGuardIceland.js';
+import { JackSweden } from './JackSweden.js';
+import { JackChina } from './JackChina.js';
+import { JackBelgium } from './JackBelgium.js';
+import { JackGabon } from './JackGabon.js';
+import { JackNorway } from './JackNorway.js';
+import { JackTunisia } from './JackTunisia.js';
+import { JackChile } from './JackChile.js';
+import { JackGreece } from './JackGreece.js';
+import { JackLiberia } from './JackLiberia.js';
+import { JackRepublicOfChina } from './JackRepublicOfChina.js';
+import { JackUnitedStates } from './JackUnitedStates.js';
+import { JackColombia } from './JackColombia.js';
+import { JackCroatia } from './JackCroatia.js';
+import { JackDominicanRepublic } from './JackDominicanRepublic.js';
+import { JackFinland } from './JackFinland.js';
+import { JackIran } from './JackIran.js';
+import { JackLithuania } from './JackLithuania.js';
+import { JackMontenegro } from './JackMontenegro.js';
+import { JackPeru } from './JackPeru.js';
+import { JackPortugal } from './JackPortugal.js';
+import { JackSpain } from './JackSpain.js';
+import { JackAntiguaAndBarbuda } from './JackAntiguaAndBarbuda.js';
+import { JackAustralia } from './JackAustralia.js';
+import { JackBahamas } from './JackBahamas.js';
+import { JackBangladesh } from './JackBangladesh.js';
+import { JackBrunei } from './JackBrunei.js';
+import { JackCanada } from './JackCanada.js';
+import { JackFrance } from './JackFrance.js';
+import { JackIndia } from './JackIndia.js';
+import { JackJapan } from './JackJapan.js';
+import { JackMalaysia } from './JackMalaysia.js';
+import { JackMyanmar } from './JackMyanmar.js';
+import { JackNewZealand } from './JackNewZealand.js';
+import { JackSouthAfrica } from './JackSouthAfrica.js';
+import { JackSingapore } from './JackSingapore.js';
+import { JackSriLanka } from './JackSriLanka.js';
+import { JackTurkey } from './JackTurkey.js';
+import { JackUkraine } from './JackUkraine.js';
+import { JackUnitedKingdom } from './JackUnitedKingdom.js';
+import { JackVietnam } from './JackVietnam.js';
+import { JackAlgeria } from './JackAlgeria.js';
+import { JackCivilBahamas } from './JackCivilBahamas.js';
+import { JackNamibia } from './JackNamibia.js';
+import { JackRomania } from './JackRomania.js';
+import { JackArgentina } from './JackArgentina.js';
+import { JackBahrain } from './JackBahrain.js';
+import { JackBolivia } from './JackBolivia.js';
+import { JackBrazil } from './JackBrazil.js';
+import { JackCambodia } from './JackCambodia.js';
+import { JackCoastGuardCanada } from './JackCoastGuardCanada.js';
+import { JackCuba } from './JackCuba.js';
+import { JackCyprus } from './JackCyprus.js';
+import { JackEcuador } from './JackEcuador.js';
+import { JackElSalvador } from './JackElSalvador.js';
+import { JackIndonesia } from './JackIndonesia.js';
+import { JackIreland } from './JackIreland.js';
+import { JackItaly } from './JackItaly.js';
+import { JackKazakhstan } from './JackKazakhstan.js';
+import { JackNorthKorea } from './JackNorthKorea.js';
+import { JackSouthKorea } from './JackSouthKorea.js';
+import { JackKuwait } from './JackKuwait.js';
+import { JackLebanon } from './JackLebanon.js';
+import { JackMalta } from './JackMalta.js';
+import { JackMexico } from './JackMexico.js';
+import { JackMorocco } from './JackMorocco.js';
+import { JackNetherlands } from './JackNetherlands.js';
+import { JackCivilNetherlands } from './JackCivilNetherlands.js';
+import { JackOman } from './JackOman.js';
+import { JackPakistan } from './JackPakistan.js';
+import { JackPanama } from './JackPanama.js';
+import { JackParaguay } from './JackParaguay.js';
+import { JackPhilippines } from './JackPhilippines.js';
+import { JackSaudiArabia } from './JackSaudiArabia.js';
+import { JackSlovenia } from './JackSlovenia.js';
+import { JackThailand } from './JackThailand.js';
+import { JackCivilUnitedKingdom } from './JackCivilUnitedKingdom.js';
+import { JackUruguay } from './JackUruguay.js';
+import { JackVenezuela } from './JackVenezuela.js';
+import { JackBulgaria } from './JackBulgaria.js';
+import { JackEstonia } from './JackEstonia.js';
+import { JackLatvia } from './JackLatvia.js';
+import { JackRussia } from './JackRussia.js';
 import { EcdisCardinalBeaconEast } from './EcdisCardinalBeaconEast.js';
 import { EcdisCardinalBeaconNorth } from './EcdisCardinalBeaconNorth.js';
 import { EcdisCardinalBeaconSouth } from './EcdisCardinalBeaconSouth.js';
@@ -329,6 +601,278 @@ const _elements: Array<[CustomElementConstructor, string]> = [
   [Substitute2, Substitute2.tagName],
   [Substitute3, Substitute3.tagName],
   [Substitute4, Substitute4.tagName],
+  [EnsignCivilAustralia, EnsignCivilAustralia.tagName],
+  [EnsignCivilBangladesh, EnsignCivilBangladesh.tagName],
+  [EnsignCivilBahamas, EnsignCivilBahamas.tagName],
+  [EnsignCivilFiji, EnsignCivilFiji.tagName],
+  [EnsignCivilIndia, EnsignCivilIndia.tagName],
+  [EnsignCivilJamaica, EnsignCivilJamaica.tagName],
+  [EnsignCivilMalaysia, EnsignCivilMalaysia.tagName],
+  [EnsignCivilMauritius, EnsignCivilMauritius.tagName],
+  [EnsignCivilNewZealand, EnsignCivilNewZealand.tagName],
+  [EnsignCivilNigeria, EnsignCivilNigeria.tagName],
+  [EnsignCivilPakistan, EnsignCivilPakistan.tagName],
+  [EnsignCivilSaudiArabia, EnsignCivilSaudiArabia.tagName],
+  [EnsignCivilSolomonIslands, EnsignCivilSolomonIslands.tagName],
+  [EnsignCivilSriLanka, EnsignCivilSriLanka.tagName],
+  [EnsignCivilUnitedArabEmirates, EnsignCivilUnitedArabEmirates.tagName],
+  [EnsignCivilUnitedKingdom, EnsignCivilUnitedKingdom.tagName],
+  [EnsignCivilBritishVirginIslands, EnsignCivilBritishVirginIslands.tagName],
+  [EnsignCivilCaymanIslands, EnsignCivilCaymanIslands.tagName],
+  [EnsignCivilFalklandIslands, EnsignCivilFalklandIslands.tagName],
+  [EnsignCivilGibraltar, EnsignCivilGibraltar.tagName],
+  [EnsignCivilGuernsey, EnsignCivilGuernsey.tagName],
+  [EnsignCivilIsleOfMan, EnsignCivilIsleOfMan.tagName],
+  [EnsignCivilJersey, EnsignCivilJersey.tagName],
+  [EnsignCivilTurksAndCaicosIslands, EnsignCivilTurksAndCaicosIslands.tagName],
+  [EnsignGovernmentUnitedKingdom, EnsignGovernmentUnitedKingdom.tagName],
+  [EnsignReserveIndia, EnsignReserveIndia.tagName],
+  [EnsignGovernmentSriLanka, EnsignGovernmentSriLanka.tagName],
+  [EnsignCivilAlbania, EnsignCivilAlbania.tagName],
+  [EnsignCivilIsrael, EnsignCivilIsrael.tagName],
+  [EnsignCivilLuxembourg, EnsignCivilLuxembourg.tagName],
+  [EnsignCivilMaine, EnsignCivilMaine.tagName],
+  [EnsignCivilMalta, EnsignCivilMalta.tagName],
+  [EnsignCivilMonaco, EnsignCivilMonaco.tagName],
+  [EnsignCivilPhilippines, EnsignCivilPhilippines.tagName],
+  [EnsignCivilSingapore, EnsignCivilSingapore.tagName],
+  [EnsignCivilColombia, EnsignCivilColombia.tagName],
+  [EnsignCivilElSalvador, EnsignCivilElSalvador.tagName],
+  [EnsignCivilItaly, EnsignCivilItaly.tagName],
+  [EnsignCivilMorocco, EnsignCivilMorocco.tagName],
+  [EnsignCivilPoland, EnsignCivilPoland.tagName],
+  [EnsignYachtUnitedStates, EnsignYachtUnitedStates.tagName],
+  [EnsignYachtFinland, EnsignYachtFinland.tagName],
+  [EnsignYachtSpain, EnsignYachtSpain.tagName],
+  [EnsignCivilAndorra, EnsignCivilAndorra.tagName],
+  [EnsignCivilArgentina, EnsignCivilArgentina.tagName],
+  [EnsignCivilAustria, EnsignCivilAustria.tagName],
+  [EnsignCivilBadenWurttemberg, EnsignCivilBadenWurttemberg.tagName],
+  [EnsignCivilBolivia, EnsignCivilBolivia.tagName],
+  [EnsignCivilBremen, EnsignCivilBremen.tagName],
+  [EnsignCivilCostaRica, EnsignCivilCostaRica.tagName],
+  [EnsignCivilDominicanRepublic, EnsignCivilDominicanRepublic.tagName],
+  [EnsignCivilEcuador, EnsignCivilEcuador.tagName],
+  [EnsignCivilElSalvadorPlain, EnsignCivilElSalvadorPlain.tagName],
+  [EnsignCivilEthiopia, EnsignCivilEthiopia.tagName],
+  [EnsignCivilFinland, EnsignCivilFinland.tagName],
+  [EnsignCivilGermany, EnsignCivilGermany.tagName],
+  [EnsignCivilGuatemala, EnsignCivilGuatemala.tagName],
+  [EnsignCivilHaiti, EnsignCivilHaiti.tagName],
+  [EnsignCivilHesse, EnsignCivilHesse.tagName],
+  [EnsignCivilHungary, EnsignCivilHungary.tagName],
+  [EnsignCivilMecklenburgVorpommern, EnsignCivilMecklenburgVorpommern.tagName],
+  [EnsignCivilNorthRhineWestphalia, EnsignCivilNorthRhineWestphalia.tagName],
+  [EnsignCivilPeru, EnsignCivilPeru.tagName],
+  [EnsignCivilRomania, EnsignCivilRomania.tagName],
+  [EnsignCivilSanMarino, EnsignCivilSanMarino.tagName],
+  [EnsignCivilSaxony, EnsignCivilSaxony.tagName],
+  [EnsignCivilSchleswigHolstein, EnsignCivilSchleswigHolstein.tagName],
+  [EnsignCivilSerbia, EnsignCivilSerbia.tagName],
+  [EnsignCivilSpain, EnsignCivilSpain.tagName],
+  [EnsignCivilTajikistan, EnsignCivilTajikistan.tagName],
+  [EnsignCivilThuringia, EnsignCivilThuringia.tagName],
+  [EnsignCivilTransnistria, EnsignCivilTransnistria.tagName],
+  [EnsignCivilVenezuela, EnsignCivilVenezuela.tagName],
+  [EnsignCivilBerlin, EnsignCivilBerlin.tagName],
+  [EnsignCivilHamburg, EnsignCivilHamburg.tagName],
+  [EnsignCivilBelgium, EnsignCivilBelgium.tagName],
+  [EnsignCivilCroatia, EnsignCivilCroatia.tagName],
+  [EnsignCivilGrenada, EnsignCivilGrenada.tagName],
+  [EnsignCivilLowerSaxony, EnsignCivilLowerSaxony.tagName],
+  [EnsignCivilSlovenia, EnsignCivilSlovenia.tagName],
+  [EnsignCivilSwitzerland, EnsignCivilSwitzerland.tagName],
+  [EnsignCivilTrinidadAndTobago, EnsignCivilTrinidadAndTobago.tagName],
+  [EnsignNavalAbkhazia, EnsignNavalAbkhazia.tagName],
+  [EnsignNavalAlbania, EnsignNavalAlbania.tagName],
+  [EnsignCoastGuardAlbania, EnsignCoastGuardAlbania.tagName],
+  [EnsignNavalAlgeria, EnsignNavalAlgeria.tagName],
+  [EnsignNavalAustralia, EnsignNavalAustralia.tagName],
+  [EnsignNavalAzerbaijan, EnsignNavalAzerbaijan.tagName],
+  [EnsignCoastGuardAzerbaijan, EnsignCoastGuardAzerbaijan.tagName],
+  [EnsignNavalBahamas, EnsignNavalBahamas.tagName],
+  [EnsignAuxiliaryBahamas, EnsignAuxiliaryBahamas.tagName],
+  [EnsignNavalBangladesh, EnsignNavalBangladesh.tagName],
+  [EnsignCoastGuardBangladesh, EnsignCoastGuardBangladesh.tagName],
+  [EnsignNavalBarbados, EnsignNavalBarbados.tagName],
+  [EnsignNavalBelgium, EnsignNavalBelgium.tagName],
+  [EnsignNavalBolivia, EnsignNavalBolivia.tagName],
+  [EnsignNavalBrunei, EnsignNavalBrunei.tagName],
+  [EnsignNavalBulgaria, EnsignNavalBulgaria.tagName],
+  [EnsignCoastGuardBulgaria, EnsignCoastGuardBulgaria.tagName],
+  [EnsignNavalCanada, EnsignNavalCanada.tagName],
+  [EnsignAuxiliaryCanada, EnsignAuxiliaryCanada.tagName],
+  [EnsignNavalChina, EnsignNavalChina.tagName],
+  [EnsignNavalColombia, EnsignNavalColombia.tagName],
+  [EnsignNavalCostaRica, EnsignNavalCostaRica.tagName],
+  [EnsignNavalCroatia, EnsignNavalCroatia.tagName],
+  [EnsignNavalDenmark, EnsignNavalDenmark.tagName],
+  [EnsignNavalDominicanRepublic, EnsignNavalDominicanRepublic.tagName],
+  [EnsignNavalEgypt, EnsignNavalEgypt.tagName],
+  [EnsignNavalEstonia, EnsignNavalEstonia.tagName],
+  [EnsignNavalFiji, EnsignNavalFiji.tagName],
+  [EnsignNavalFinland, EnsignNavalFinland.tagName],
+  [EnsignNavalFrance, EnsignNavalFrance.tagName],
+  [EnsignNavalGambia, EnsignNavalGambia.tagName],
+  [EnsignNavalGeorgia, EnsignNavalGeorgia.tagName],
+  [EnsignNavalGhana, EnsignNavalGhana.tagName],
+  [EnsignNavalGermany, EnsignNavalGermany.tagName],
+  [EnsignNavalGrenada, EnsignNavalGrenada.tagName],
+  [EnsignNavalGuyana, EnsignNavalGuyana.tagName],
+  [EnsignCoastGuardGreece, EnsignCoastGuardGreece.tagName],
+  [EnsignNavalHonduras, EnsignNavalHonduras.tagName],
+  [EnsignNavalHungary, EnsignNavalHungary.tagName],
+  [EnsignNavalIceland, EnsignNavalIceland.tagName],
+  [EnsignNavalIndia, EnsignNavalIndia.tagName],
+  [EnsignAuxiliaryIndia, EnsignAuxiliaryIndia.tagName],
+  [EnsignCoastGuardIndia, EnsignCoastGuardIndia.tagName],
+  [EnsignNavalIsrael, EnsignNavalIsrael.tagName],
+  [EnsignNavalItaly, EnsignNavalItaly.tagName],
+  [EnsignNavalJamaica, EnsignNavalJamaica.tagName],
+  [EnsignNavalJapan, EnsignNavalJapan.tagName],
+  [EnsignCoastGuardJapan, EnsignCoastGuardJapan.tagName],
+  [EnsignNavalJordan, EnsignNavalJordan.tagName],
+  [EnsignNavalKazakhstan, EnsignNavalKazakhstan.tagName],
+  [EnsignNavalKenya, EnsignNavalKenya.tagName],
+  [EnsignNavalLatvia, EnsignNavalLatvia.tagName],
+  [EnsignNavalLibya, EnsignNavalLibya.tagName],
+  [EnsignNavalLithuania, EnsignNavalLithuania.tagName],
+  [EnsignNavalMalaysia, EnsignNavalMalaysia.tagName],
+  [EnsignNavalMauritius, EnsignNavalMauritius.tagName],
+  [EnsignNavalMonaco, EnsignNavalMonaco.tagName],
+  [EnsignNavalMontenegro, EnsignNavalMontenegro.tagName],
+  [EnsignNavalMorocco, EnsignNavalMorocco.tagName],
+  [EnsignNavalMyanmar, EnsignNavalMyanmar.tagName],
+  [EnsignNavalNamibia, EnsignNavalNamibia.tagName],
+  [EnsignNavalNewZealand, EnsignNavalNewZealand.tagName],
+  [EnsignNavalNigeria, EnsignNavalNigeria.tagName],
+  [EnsignNavalNorthKorea, EnsignNavalNorthKorea.tagName],
+  [EnsignNavalNorway, EnsignNavalNorway.tagName],
+  [EnsignNavalOman, EnsignNavalOman.tagName],
+  [EnsignNavalPakistan, EnsignNavalPakistan.tagName],
+  [EnsignNavalPapuaNewGuinea, EnsignNavalPapuaNewGuinea.tagName],
+  [EnsignNavalPeru, EnsignNavalPeru.tagName],
+  [EnsignNavalPoland, EnsignNavalPoland.tagName],
+  [EnsignAuxiliaryPoland, EnsignAuxiliaryPoland.tagName],
+  [EnsignCoastGuardPoland, EnsignCoastGuardPoland.tagName],
+  [EnsignNavalRussia, EnsignNavalRussia.tagName],
+  [EnsignAuxiliaryRussia, EnsignAuxiliaryRussia.tagName],
+  [EnsignCoastGuardRussia, EnsignCoastGuardRussia.tagName],
+  [EnsignNavalSaintKittsAndNevis, EnsignNavalSaintKittsAndNevis.tagName],
+  [EnsignNavalSaudiArabia, EnsignNavalSaudiArabia.tagName],
+  [EnsignNavalSerbia, EnsignNavalSerbia.tagName],
+  [EnsignNavalSierraLeone, EnsignNavalSierraLeone.tagName],
+  [EnsignNavalSingapore, EnsignNavalSingapore.tagName],
+  [EnsignNavalSolomonIslands, EnsignNavalSolomonIslands.tagName],
+  [EnsignNavalSomalia, EnsignNavalSomalia.tagName],
+  [EnsignNavalSomaliland, EnsignNavalSomaliland.tagName],
+  [EnsignNavalSouthAfrica, EnsignNavalSouthAfrica.tagName],
+  [EnsignNavalSriLanka, EnsignNavalSriLanka.tagName],
+  [EnsignCoastGuardSriLanka, EnsignCoastGuardSriLanka.tagName],
+  [EnsignNavalSudan, EnsignNavalSudan.tagName],
+  [EnsignNavalSweden, EnsignNavalSweden.tagName],
+  [EnsignNavalThailand, EnsignNavalThailand.tagName],
+  [EnsignNavalTonga, EnsignNavalTonga.tagName],
+  [EnsignNavalTrinidadAndTobago, EnsignNavalTrinidadAndTobago.tagName],
+  [EnsignNavalTurkmenistan, EnsignNavalTurkmenistan.tagName],
+  [EnsignNavalUkraine, EnsignNavalUkraine.tagName],
+  [EnsignAuxiliaryUkraine, EnsignAuxiliaryUkraine.tagName],
+  [EnsignCoastGuardUkraine, EnsignCoastGuardUkraine.tagName],
+  [EnsignNavalUnitedKingdom, EnsignNavalUnitedKingdom.tagName],
+  [EnsignAuxiliaryUnitedKingdom, EnsignAuxiliaryUnitedKingdom.tagName],
+  [EnsignCoastGuardUnitedKingdom, EnsignCoastGuardUnitedKingdom.tagName],
+  [EnsignCoastGuardUnitedStates, EnsignCoastGuardUnitedStates.tagName],
+  [EnsignNavalUzbekistan, EnsignNavalUzbekistan.tagName],
+  [EnsignNavalVanuatu, EnsignNavalVanuatu.tagName],
+  [EnsignNavalVenezuela, EnsignNavalVenezuela.tagName],
+  [EnsignNavalVietnam, EnsignNavalVietnam.tagName],
+  [EnsignNavalYemen, EnsignNavalYemen.tagName],
+  [JackDenmark, JackDenmark.tagName],
+  [JackEgypt, JackEgypt.tagName],
+  [JackGermany, JackGermany.tagName],
+  [JackCoastGuardIceland, JackCoastGuardIceland.tagName],
+  [JackSweden, JackSweden.tagName],
+  [JackChina, JackChina.tagName],
+  [JackBelgium, JackBelgium.tagName],
+  [JackGabon, JackGabon.tagName],
+  [JackNorway, JackNorway.tagName],
+  [JackTunisia, JackTunisia.tagName],
+  [JackChile, JackChile.tagName],
+  [JackGreece, JackGreece.tagName],
+  [JackLiberia, JackLiberia.tagName],
+  [JackRepublicOfChina, JackRepublicOfChina.tagName],
+  [JackUnitedStates, JackUnitedStates.tagName],
+  [JackColombia, JackColombia.tagName],
+  [JackCroatia, JackCroatia.tagName],
+  [JackDominicanRepublic, JackDominicanRepublic.tagName],
+  [JackFinland, JackFinland.tagName],
+  [JackIran, JackIran.tagName],
+  [JackLithuania, JackLithuania.tagName],
+  [JackMontenegro, JackMontenegro.tagName],
+  [JackPeru, JackPeru.tagName],
+  [JackPortugal, JackPortugal.tagName],
+  [JackSpain, JackSpain.tagName],
+  [JackAntiguaAndBarbuda, JackAntiguaAndBarbuda.tagName],
+  [JackAustralia, JackAustralia.tagName],
+  [JackBahamas, JackBahamas.tagName],
+  [JackBangladesh, JackBangladesh.tagName],
+  [JackBrunei, JackBrunei.tagName],
+  [JackCanada, JackCanada.tagName],
+  [JackFrance, JackFrance.tagName],
+  [JackIndia, JackIndia.tagName],
+  [JackJapan, JackJapan.tagName],
+  [JackMalaysia, JackMalaysia.tagName],
+  [JackMyanmar, JackMyanmar.tagName],
+  [JackNewZealand, JackNewZealand.tagName],
+  [JackSouthAfrica, JackSouthAfrica.tagName],
+  [JackSingapore, JackSingapore.tagName],
+  [JackSriLanka, JackSriLanka.tagName],
+  [JackTurkey, JackTurkey.tagName],
+  [JackUkraine, JackUkraine.tagName],
+  [JackUnitedKingdom, JackUnitedKingdom.tagName],
+  [JackVietnam, JackVietnam.tagName],
+  [JackAlgeria, JackAlgeria.tagName],
+  [JackCivilBahamas, JackCivilBahamas.tagName],
+  [JackNamibia, JackNamibia.tagName],
+  [JackRomania, JackRomania.tagName],
+  [JackArgentina, JackArgentina.tagName],
+  [JackBahrain, JackBahrain.tagName],
+  [JackBolivia, JackBolivia.tagName],
+  [JackBrazil, JackBrazil.tagName],
+  [JackCambodia, JackCambodia.tagName],
+  [JackCoastGuardCanada, JackCoastGuardCanada.tagName],
+  [JackCuba, JackCuba.tagName],
+  [JackCyprus, JackCyprus.tagName],
+  [JackEcuador, JackEcuador.tagName],
+  [JackElSalvador, JackElSalvador.tagName],
+  [JackIndonesia, JackIndonesia.tagName],
+  [JackIreland, JackIreland.tagName],
+  [JackItaly, JackItaly.tagName],
+  [JackKazakhstan, JackKazakhstan.tagName],
+  [JackNorthKorea, JackNorthKorea.tagName],
+  [JackSouthKorea, JackSouthKorea.tagName],
+  [JackKuwait, JackKuwait.tagName],
+  [JackLebanon, JackLebanon.tagName],
+  [JackMalta, JackMalta.tagName],
+  [JackMexico, JackMexico.tagName],
+  [JackMorocco, JackMorocco.tagName],
+  [JackNetherlands, JackNetherlands.tagName],
+  [JackCivilNetherlands, JackCivilNetherlands.tagName],
+  [JackOman, JackOman.tagName],
+  [JackPakistan, JackPakistan.tagName],
+  [JackPanama, JackPanama.tagName],
+  [JackParaguay, JackParaguay.tagName],
+  [JackPhilippines, JackPhilippines.tagName],
+  [JackSaudiArabia, JackSaudiArabia.tagName],
+  [JackSlovenia, JackSlovenia.tagName],
+  [JackThailand, JackThailand.tagName],
+  [JackCivilUnitedKingdom, JackCivilUnitedKingdom.tagName],
+  [JackUruguay, JackUruguay.tagName],
+  [JackVenezuela, JackVenezuela.tagName],
+  [JackBulgaria, JackBulgaria.tagName],
+  [JackEstonia, JackEstonia.tagName],
+  [JackLatvia, JackLatvia.tagName],
+  [JackRussia, JackRussia.tagName],
   [EcdisCardinalBeaconEast, EcdisCardinalBeaconEast.tagName],
   [EcdisCardinalBeaconNorth, EcdisCardinalBeaconNorth.tagName],
   [EcdisCardinalBeaconSouth, EcdisCardinalBeaconSouth.tagName],
