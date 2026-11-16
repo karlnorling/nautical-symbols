@@ -31,7 +31,8 @@
     "sprite.svg",
     "sprite-ids.json",
     "package.json",
-    "README.md"
+    "README.md",
+    "NOTICE.md"
   ],
   "exports": {
     "./sprite.svg": "./sprite.svg",
