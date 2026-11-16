@@ -223,11 +223,10 @@ MIT © [Karl Norling](https://github.com/karlnorling)
 
 > **Artwork licences:** the code in this repository is MIT-licensed; the SVG artwork is not. It comes from Wikimedia Commons under several licences, recorded per symbol in `license` (with the Commons page in `source`):
 >
-> | Licence       | Symbols                                                                                     |
-> | ------------- | ------------------------------------------------------------------------------------------- |
-> | Public domain | letter flags, NATO number flags, answer pennant, substitutes, INT 1 and ECDIS chart symbols |
-> | CC0           | `chart-pilot-station`                                                                       |
-> | CC BY-SA 4.0  | topmarks, the `light-*` symbols — attribution and share-alike apply                         |
-> | GPL           | ICS number pennants `pennant-0` … `pennant-9`                                               |
+> | Licence       | Symbols                                                                                       |
+> | ------------- | --------------------------------------------------------------------------------------------- |
+> | Public domain | letter flags, NATO number flags, answer pennant, substitutes, INT 1 and ECDIS chart symbols   |
+> | CC0           | ICS number pennants `pennant-0` … `pennant-9` (drawn for this project), `chart-pilot-station` |
+> | CC BY-SA 4.0  | topmarks, the `light-*` symbols — attribution and share-alike apply                           |
 >
-> Check a symbol's licence before you redistribute it.
+> Every package ships a generated `NOTICE.md` with the per-symbol attribution. Check a symbol's licence before you redistribute it.

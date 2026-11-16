@@ -454,6 +454,52 @@ const generateElementsIndex = (componentNames: string[]): string =>
   ].join('\n');
 
 // ---------------------------------------------------------------------------
+// NOTICE.md — artwork licences and attribution, shipped in every package
+// ---------------------------------------------------------------------------
+
+/** Packages whose published files contain the symbol artwork. */
+const ARTWORK_PACKAGES = ['assets', 'core', 'css', 'elements', 'react', 'sprite', 'vue'] as const;
+
+/** Licences that need no attribution; their symbols are summarised, not listed. */
+const NO_ATTRIBUTION = new Set(['Public domain', 'CC0']);
+
+const escapeCell = (text: string): string => text.replace(/\|/g, '\\|').replace(/\s+/g, ' ').trim();
+
+export const generateNotice = (scraped: ScrapedData): string => {
+  const all = Object.values(scraped).flat();
+  const counts = new Map<string, number>();
+  for (const { license } of all) counts.set(license, (counts.get(license) ?? 0) + 1);
+  const attributed = all.filter((s) => !NO_ATTRIBUTION.has(s.license));
+
+  return [
+    '# Artwork notice',
+    '',
+    'The code in this package is MIT-licensed (see LICENSE). The symbol artwork is not: it comes',
+    'from Wikimedia Commons under the licences below, except the ICS numeral pennants',
+    '(`pennant-0` … `pennant-9`), which were drawn for this project and are dedicated to the',
+    'public domain under CC0 1.0. Each symbol also carries its `license` and `source` in',
+    '`@nautical-symbols/core`.',
+    '',
+    '| Licence | Symbols |',
+    '| ------- | ------- |',
+    ...[...counts].sort(([a], [b]) => a.localeCompare(b)).map(([l, n]) => `| ${l} | ${n} |`),
+    '',
+    '## Attribution',
+    '',
+    'These symbols are used under licences that require attribution. Works under CC BY-SA must',
+    'be shared under the same licence when you adapt them.',
+    '',
+    '| Symbol | Author | Licence | Source |',
+    '| ------ | ------ | ------- | ------ |',
+    ...attributed.map(
+      (s) =>
+        `| \`${s.code}\` | ${escapeCell(s.author ?? 'unknown')} | ${s.license} | <${s.imageUrl}> |`,
+    ),
+    '',
+  ].join('\n');
+};
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -510,6 +556,11 @@ export const generateSource = async (): Promise<void> => {
     ),
   );
   write(pkgSrc('elements', 'index.ts'), generateElementsIndex(componentNames));
+
+  const notice = generateNotice(scraped);
+  for (const pkg of ARTWORK_PACKAGES) {
+    write(path.join('packages', '@nautical-symbols', pkg, 'NOTICE.md'), notice);
+  }
 
   console.log('\nDone.');
 };

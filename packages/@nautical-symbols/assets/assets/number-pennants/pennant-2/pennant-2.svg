@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="540" height="300" version="1.0">
-<path d="M1.25,1.25l537.5,75v147.5l-537.5,75z" fill="#00f" stroke="#000" stroke-width="2.5"/>
-<circle cx="150" cy="150" r="75.3" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.25 -1.25 542.5 302.5" width="542.5" height="302.5">
+<title>ICS numeral pennant 2: Azure, a plate</title>
+<desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc>
+<clipPath id="pennant"><path d="M0,0L540,75V225L0,300Z"/></clipPath>
+<g clip-path="url(#pennant)"><rect x="0" y="0" width="540" height="300" fill="#00f"/><circle cx="180" cy="150" r="75" fill="#fff"/></g>
+<path d="M0,0L540,75V225L0,300Z" fill="none" stroke="#000" stroke-width="2.5" stroke-linejoin="miter"/>
 </svg>

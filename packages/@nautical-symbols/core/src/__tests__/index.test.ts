@@ -95,8 +95,15 @@ describe('symbol data', () => {
   it('every symbol records its licence and Commons source page', () => {
     for (const { license, source } of symbols) {
       expect(license).not.toBe('unknown');
-      expect(source).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+      expect(source).toMatch(
+        /^https:\/\/(commons\.wikimedia\.org\/wiki\/File:|github\.com\/karlnorling\/nautical-symbols\/blob\/main\/art\/)/,
+      );
     }
+  });
+
+  it('ships no GPL artwork', () => {
+    for (const { id, license } of symbols) expect([id, license]).not.toEqual([id, 'GPL']);
+    for (const s of getSymbolsByCategory('number-pennants')) expect(s.license).toBe('CC0');
   });
 
   it('inline svgs contain no scripts or event handlers', () => {
