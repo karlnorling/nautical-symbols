@@ -166,6 +166,30 @@ const processImage = async (destDir: string, code: string, fileUrl: string): Pro
   await convertImages(dest);
 };
 
+/**
+ * Copies artwork drawn in this repository to `{destDir}/{code}.svg`. When the
+ * drawing changed, the old raster copies are deleted so they are rendered again.
+ */
+const processLocalImage = async (
+  destDir: string,
+  code: string,
+  localFile: string,
+): Promise<void> => {
+  await fs.promises.mkdir(destDir, { recursive: true });
+  const dest = path.join(destDir, `${code}.svg`);
+  const source = await fs.promises.readFile(localFile, 'utf-8');
+  const current = await fs.promises.readFile(dest, 'utf-8').catch(() => null);
+
+  if (current !== source) {
+    await fs.promises.writeFile(dest, source, 'utf-8');
+    for (const raster of globSync(path.join(destDir, `${code}_*x*.{jpg,png,webp}`))) {
+      await fs.promises.rm(raster, { force: true });
+    }
+    console.log(`  Copied: ${localFile}`);
+  }
+  await convertImages(dest);
+};
+
 // ---------------------------------------------------------------------------
 // Sprite generation
 // ---------------------------------------------------------------------------
@@ -322,13 +346,15 @@ const createAssets = async (res: ScrapedData): Promise<void> => {
     await fs.promises.mkdir(catDir, { recursive: true });
 
     for (const symbol of symbols) {
-      if (!symbol.fileUrl) {
+      const symbolDir = path.join(catDir, symbol.code);
+      if (!symbol.fileUrl && !symbol.localFile) {
         failures.push(`${symbol.code}: no file URL scraped`);
         continue;
       }
-      const symbolDir = path.join(catDir, symbol.code);
       try {
-        await processImage(symbolDir, symbol.code, symbol.fileUrl);
+        await (symbol.localFile
+          ? processLocalImage(symbolDir, symbol.code, symbol.localFile)
+          : processImage(symbolDir, symbol.code, symbol.fileUrl!));
       } catch (err) {
         console.error(`  Error processing ${symbol.code}:`, (err as Error).message);
         failures.push(`${symbol.code}: ${(err as Error).message}`);

@@ -26,6 +26,7 @@
 /* oxlint-disable no-await-in-loop */
 
 import { parse } from 'node-html-parser';
+import { pennantPath } from './draw-pennants';
 import type { HTMLElement, Node } from 'node-html-parser';
 
 // ---------------------------------------------------------------------------
@@ -65,8 +66,15 @@ export interface ScrapedSymbol {
   imageUrl: string | null;
   /** Direct URL of the original SVG file, from the Commons API. */
   fileUrl: string | null;
+  /**
+   * Repository path of artwork drawn for this project, used instead of
+   * `fileUrl` (see bin/draw-pennants.ts).
+   */
+  localFile?: string;
   /** Licence short name as Commons reports it, e.g. `"Public domain"`, `"CC BY-SA 4.0"`. */
   license: string;
+  /** Author as Commons credits it, for attribution in NOTICE.md. */
+  author: string;
 }
 
 /** Root shape of the data returned by {@link scrape}. */
@@ -78,6 +86,7 @@ export type ScrapedData = Record<NauticalSymbolCategory, ScrapedSymbol[]>;
 
 const USER_AGENT =
   'nautical-symbols/0.0.0 (https://github.com/karlnorling/nautical-symbols; build-script)';
+const REPO_URL = 'https://github.com/karlnorling/nautical-symbols';
 const WIKIPEDIA_ORIGIN = 'https://en.wikipedia.org';
 const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
 
@@ -136,11 +145,16 @@ const cellText = (node: Node): string => {
 };
 
 interface FileInfo {
+  author: string;
   fileUrl: string;
   license: string;
 }
 
-/** Looks up the original file URL and licence for each Commons file, 50 per request. */
+/** Plain text of a Commons `Artist` value, which is HTML (often a user-page link). */
+const authorText = (html: string | undefined): string =>
+  html ? squash(parse(html).textContent) || 'unknown' : 'unknown';
+
+/** Looks up the original file URL, licence and author for each Commons file, 50 per request. */
 const fetchFileInfo = async (fileNames: string[]): Promise<Map<string, FileInfo>> => {
   interface Response {
     query: {
@@ -162,7 +176,7 @@ const fetchFileInfo = async (fileNames: string[]): Promise<Map<string, FileInfo>
     const batch = fileNames.slice(i, i + 50);
     const data = await commonsApi<Response>({
       action: 'query',
-      iiextmetadatafilter: 'LicenseShortName',
+      iiextmetadatafilter: 'LicenseShortName|Artist',
       iiprop: 'url|extmetadata',
       prop: 'imageinfo',
       redirects: '1',
@@ -185,6 +199,7 @@ const fetchFileInfo = async (fileNames: string[]): Promise<Map<string, FileInfo>
       const ii = byTitle.get(title)?.imageinfo?.[0];
       if (!ii) throw new Error(`Commons has no file "${fileName}"`);
       info.set(fileName, {
+        author: authorText(ii.extmetadata?.Artist?.value),
         fileUrl: ii.url,
         license: ii.extmetadata?.LicenseShortName?.value ?? 'unknown',
       });
@@ -360,15 +375,36 @@ const scrapeFlags = async (): Promise<
     if (!FLAG_CODES.has(file)) console.warn(`  Warning: no flag code for "${file}"; skipped.`);
   }
 
-  const info = await fetchFileInfo([...FLAG_CODES.keys()]);
+  const info = await fetchFileInfo(
+    [...FLAG_CODES].filter(([, { category }]) => category !== 'number-pennants').map(([f]) => f),
+  );
   return [...FLAG_CODES].map(([file, { category, code, name }]) => {
     if (!linked.has(file))
       console.warn(`  Warning: "${file}" (${code}) is no longer in the article`);
-    const { fileUrl, license } = info.get(file)!;
+    const description = descriptions.get(file) ?? name;
+
+    // The Commons pennants are GPL; use the CC0 drawings from bin/draw-pennants.ts.
+    if (category === 'number-pennants') {
+      const localFile = pennantPath(Number(code.replace('pennant-', ''))).replace(/\\/g, '/');
+      return {
+        category,
+        code,
+        description,
+        fileUrl: null,
+        imageUrl: `${REPO_URL}/blob/main/${localFile}`,
+        author: 'nautical-symbols contributors',
+        license: 'CC0',
+        localFile,
+        name,
+      };
+    }
+
+    const { author, fileUrl, license } = info.get(file)!;
     return {
+      author,
       category,
       code,
-      description: descriptions.get(file) ?? name,
+      description,
       fileUrl,
       imageUrl: filePageUrl(file),
       license,
@@ -519,8 +555,9 @@ const scrapeChart = async (): Promise<
       console.warn(`  Warning: no chart code for "${file}"; skipped. Add it to CHART_OVERRIDES.`);
       continue;
     }
-    const { fileUrl, license } = info.get(file)!;
+    const { author, fileUrl, license } = info.get(file)!;
     symbols.push({
+      author,
       category: derived.category,
       code: derived.code,
       description: `${derived.name} — ${derived.style}`,

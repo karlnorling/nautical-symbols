@@ -15,6 +15,7 @@
     "check": "manypkg check",
     "check:esm": "node scripts/check-esm.mjs",
     "compile": "yarn workspaces foreach -A --topological-dev run compile",
+    "draw-pennants": "tsx bin/draw-pennants.ts",
     "docs": "yarn workspace @nautical-symbols-docs/app dev",
     "format": "oxfmt --write --ignore-path=.oxfmtignore .",
     "format:check": "oxfmt --check --ignore-path=.oxfmtignore .",

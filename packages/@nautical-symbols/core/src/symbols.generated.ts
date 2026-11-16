@@ -458,10 +458,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Or, a pale gules",
     group: "flags",
     id: "pennant-0",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 0",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Zero.svg",
-    svg: "<svg viewBox=\"0 0 576 320\" xmlns=\"http://www.w3.org/2000/svg\" width=\"576\" height=\"320\"><path fill=\"#ff0\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"red\" d=\"M177.5 26 362 52v196l-184.5 26z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-0.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 0: Or, a pale gules</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-0-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-0-a)\"><path fill=\"#ff0\" d=\"M0 0h540v300H0z\"/><path fill=\"red\" d=\"M180 0h180v300H180z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -475,10 +475,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Argent, a torteau",
     group: "flags",
     id: "pennant-1",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 1",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_One.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#fff\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><circle cx=\"150\" cy=\"150\" r=\"75.3\" fill=\"red\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-1.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 1: Argent, a torteau</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-1-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-1-a)\"><path fill=\"#fff\" d=\"M0 0h540v300H0z\"/><circle cx=\"180\" cy=\"150\" r=\"75\" fill=\"red\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -492,10 +492,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Azure, a plate",
     group: "flags",
     id: "pennant-2",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 2",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Two.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#00f\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><circle cx=\"150\" cy=\"150\" r=\"75.3\" fill=\"#fff\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-2.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 2: Azure, a plate</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-2-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-2-a)\"><path fill=\"#00f\" d=\"M0 0h540v300H0z\"/><circle cx=\"180\" cy=\"150\" r=\"75\" fill=\"#fff\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -509,10 +509,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Tierced in pale gules, argent and azure",
     group: "flags",
     id: "pennant-3",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 3",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Three.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#fff\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"red\" d=\"m1.25 1.25 176.25 25v247.5l-176.25 25z\"/><path fill=\"#00f\" d=\"m362 52 176.25 25v147.5L362 249.5z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-3.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 3: Tierced in pale gules, argent and azure</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-3-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-3-a)\"><path fill=\"red\" d=\"M0 0h180v300H0z\"/><path fill=\"#fff\" d=\"M180 0h180v300H180z\"/><path fill=\"#00f\" d=\"M360 0h180v300H360z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -526,10 +526,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Gules, a cross of Saint Philip argent",
     group: "flags",
     id: "pennant-4",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 4",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Four.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"red\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"#fff\" d=\"M1.25 112.5h111.5v-96l75 10.4v85.6h351v75h-351v85.6l-75 10.4v-96H1.25\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-4.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 4: Gules, a cross argent</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-4-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-4-a)\"><path fill=\"red\" d=\"M0 0h540v300H0z\"/><path fill=\"#fff\" d=\"M142.5 0h75v300h-75z\"/><path fill=\"#fff\" d=\"M0 112.5h540v75H0z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -543,10 +543,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Per pale or and azure",
     group: "flags",
     id: "pennant-5",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 5",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Five.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#ff0\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"#00f\" d=\"M270 39v222l269-37.75V76.75z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-5.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 5: Per pale or and azure</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-5-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-5-a)\"><path fill=\"#ff0\" d=\"M0 0h270v300H0z\"/><path fill=\"#00f\" d=\"M270 0h270v300H270z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -560,10 +560,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Per fess sable and argent",
     group: "flags",
     id: "pennant-6",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 6",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Six.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"#fff\" d=\"M1.25 150h537.5v73.75l-537.5 75z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-6.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 6: Per fess sable and argent</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-6-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-6-a)\"><path d=\"M0 0h540v150H0z\"/><path fill=\"#fff\" d=\"M0 150h540v150H0z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -577,10 +577,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Per fess or and gules",
     group: "flags",
     id: "pennant-7",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 7",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Seven.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#ff0\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"red\" d=\"M1.25 150h537.5v73.75l-537.5 75z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-7.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 7: Per fess or and gules</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-7-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-7-a)\"><path fill=\"#ff0\" d=\"M0 0h540v150H0z\"/><path fill=\"red\" d=\"M0 150h540v150H0z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -594,10 +594,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Argent, a cross of Saint Philip gules",
     group: "flags",
     id: "pennant-8",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 8",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Eight.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"#fff\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"red\" d=\"M1.25 112.5h111.5v-96l75 10.4v85.6h351v75h-351v85.6l-75 10.4v-96H1.25\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-8.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 8: Argent, a cross gules</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-8-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-8-a)\"><path fill=\"#fff\" d=\"M0 0h540v300H0z\"/><path fill=\"red\" d=\"M142.5 0h75v300h-75z\"/><path fill=\"red\" d=\"M0 112.5h540v75H0z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
@@ -611,10 +611,10 @@ export const symbols: NauticalSymbol[] = [
     description: "Blazon: Quarterly argent, sable, gules and or",
     group: "flags",
     id: "pennant-9",
-    license: "GPL",
+    license: "CC0",
     name: "Number pennant 9",
-    source: "https://commons.wikimedia.org/wiki/File:ICS_Pennant_Niner.svg",
-    svg: "<svg viewBox=\"0 0 540 300\" xmlns=\"http://www.w3.org/2000/svg\" width=\"540\" height=\"300\"><path fill=\"red\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/><path fill=\"#fff\" d=\"M1.25 150V1.25l269 37.75v111z\"/><path fill=\"#ff0\" d=\"M270 150v111l269-37.75V150z\"/><path d=\"M270 150V39l269 37.75V150z\"/><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m1.25 1.25 537.5 75v147.5l-537.5 75z\"/></svg>",
+    source: "https://github.com/karlnorling/nautical-symbols/blob/main/art/number-pennants/pennant-9.svg",
+    svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"542.5\" height=\"302.5\" viewBox=\"-1.25 -1.25 542.5 302.5\"><title>ICS numeral pennant 9: Quarterly argent, sable, gules and or</title><desc>Original drawing for nautical-symbols, dedicated to the public domain (CC0 1.0).</desc><clipPath id=\"pennant-9-a\"><path d=\"m0 0 540 75v150L0 300Z\"/></clipPath><g clip-path=\"url(#pennant-9-a)\"><path fill=\"#fff\" d=\"M0 0h270v150H0z\"/><path d=\"M270 0h270v150H270z\"/><path fill=\"red\" d=\"M0 150h270v150H0z\"/><path fill=\"#ff0\" d=\"M270 150h270v150H270z\"/></g><path fill=\"none\" stroke=\"#000\" stroke-width=\"2.5\" d=\"m0 0 540 75v150L0 300Z\"/></svg>",
   },
   {
     assets: {
