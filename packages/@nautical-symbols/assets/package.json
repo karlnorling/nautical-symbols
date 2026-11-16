@@ -1,6 +1,6 @@
 {
   "name": "@nautical-symbols/assets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Static image assets for all nautical symbols — SVG, PNG, JPG, and WebP at five sizes (240–2048 px)",
   "keywords": [
     "assets",

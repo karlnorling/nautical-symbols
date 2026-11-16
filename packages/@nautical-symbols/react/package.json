@@ -1,6 +1,6 @@
 {
   "name": "@nautical-symbols/react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Accessible React components for all nautical symbols — fully typed, zero runtime dependencies beyond React",
   "keywords": [
     "accessible",
@@ -53,7 +53,7 @@
     "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@nautical-symbols/core": "^0.1.0"
+    "@nautical-symbols/core": "^0.2.0"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

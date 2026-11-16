@@ -1,6 +1,6 @@
 {
   "name": "@nautical-symbols/css",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CSS background-image sprite for nautical symbols — class-based display, no JavaScript required",
   "keywords": [
     "background-image",
@@ -52,8 +52,8 @@
     "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@nautical-symbols/assets": "^0.1.0",
-    "@nautical-symbols/core": "^0.1.0"
+    "@nautical-symbols/assets": "^0.2.0",
+    "@nautical-symbols/core": "^0.2.0"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
