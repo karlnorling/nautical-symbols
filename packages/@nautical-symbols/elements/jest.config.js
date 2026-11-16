@@ -1,0 +1,27 @@
+/** @type {import('jest').Config} */
+const config = {
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  roots: ['<rootDir>/src'],
+  testMatch: ['**/__tests__/**/*.test.ts'],
+  moduleFileExtensions: ['ts', 'js', 'json'],
+  transform: {
+    '^.+\\.ts$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          esModuleInterop: true,
+          skipLibCheck: true,
+          types: ['jest', 'node'],
+          lib: ['ES2022', 'DOM'],
+        },
+      },
+    ],
+  },
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^@nautical-symbols/core$': '<rootDir>/../core/src/index.ts',
+  },
+};
+
+module.exports = config;

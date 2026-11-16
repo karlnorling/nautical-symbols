@@ -1,0 +1,79 @@
+---
+title: "@nautical-symbols/css"
+description: CSS sprite classes for nautical symbols — no JavaScript required.
+---
+
+## Installation
+
+```sh
+npm install @nautical-symbols/css
+```
+
+## Setup
+
+Import the stylesheet once in your project's entry point:
+
+```ts
+import '@nautical-symbols/css/sprite.css';
+```
+
+Or link it in HTML:
+
+```html
+<link rel="stylesheet" href="node_modules/@nautical-symbols/css/sprite.css" />
+```
+
+## Usage
+
+Add the class `nautical-{code}` to any element to display that symbol as a background image. Set explicit dimensions on the element.
+
+```html
+<span class="nautical-flag-alfa" style="display:inline-block;width:64px;height:64px;"></span>
+```
+
+## Class name patterns
+
+| Class                         | Symbol                   | Category            |
+|-------------------------------|--------------------------|---------------------|
+| `nautical-flag-alfa`          | A (Alfa)                   | `letter-flags`     |
+| `nautical-substitute-1`       | First substitute           | `special-pennants` |
+| `nautical-chart-can-buoy-red` | Can buoy red               | `lateral-marks`    |
+| `nautical-pennant-1`          | Number pennant 1           | `number-pennants`  |
+| `nautical-topmark-saltire`    | Topmark saltire            | `topmarks`         |
+
+The full class list is `nautical-` followed by each symbol code.
+
+## Accessibility
+
+Background images are invisible to assistive technologies and do not appear in the accessibility tree. Any usage of CSS symbol classes must be accompanied by explicit ARIA attributes on the host element.
+
+```html
+<!-- Correct: role + aria-label on the element carrying the class -->
+<span
+  class="nautical-flag-alfa"
+  role="img"
+  aria-label="A (Alfa)"
+  style="display:inline-block;width:64px;height:64px;"
+></span>
+```
+
+Do not rely on surrounding text alone — screen readers will skip the visual entirely unless `role="img"` and `aria-label` (or `aria-labelledby`) are present.
+
+## Full example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="node_modules/@nautical-symbols/css/sprite.css" />
+  <style>
+    .symbol { display: inline-block; width: 64px; height: 64px; }
+  </style>
+</head>
+<body>
+  <span class="symbol nautical-flag-alfa" role="img" aria-label="A (Alfa)"></span>
+  <span class="symbol nautical-pennant-1" role="img" aria-label="Iron at low temperature"></span>
+  <span class="symbol nautical-chart-can-buoy-red" role="img" aria-label="Can buoy red"></span>
+</body>
+</html>
+```

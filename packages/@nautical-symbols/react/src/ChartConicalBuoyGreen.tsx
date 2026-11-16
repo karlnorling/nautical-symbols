@@ -1,0 +1,21 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import * as React from 'react';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import type { SymbolProps } from './SymbolProps.js';
+import { SymbolSvg } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 320\"",
+  body: "<path d=\"M216.406 144.094c-3.946.065-7.532 2.22-11.281 5.187-4 3.165-8.228 7.496-12.656 12.594-8.774 10.103-18.28 23.167-27.156 35.313h-7.157v5.656h29.688c1.287 5.533 6.233 9.656 12.156 9.656 5.925 0 10.87-4.12 12.156-9.656H242v-5.657h-7.719c-1.276-11.327-2.185-23.372-4-33.093-.954-5.114-2.122-9.575-4-13.156-1.877-3.582-4.968-6.614-9.094-6.844-.266-.015-.518-.005-.78 0M200 192.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5-7.5-3.36-7.5-7.5 3.36-7.5 7.5-7.5\" style=\"fill:#000407;fill-opacity:1;fill-rule:evenodd;stroke:none\" transform=\"translate(-40 -40)\"/>",
+  height: "320",
+  width: "320",
+};
+const _title = "Conical buoy green";
+const _description = "Conical buoy green — INT 1 paper chart symbol";
+
+export const ChartConicalBuoyGreen = React.memo<SymbolProps>((props) => (
+  <SymbolSvg {...props} defaultDescription={_description} defaultTitle={_title} svg={_svg} />
+));
+ChartConicalBuoyGreen.displayName = 'ChartConicalBuoyGreen';

@@ -1,0 +1,103 @@
+---
+title: "@nautical-symbols/sprite"
+description: SVG sprite sheet for nautical symbols — reference symbols by code with a single HTTP request.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+```sh
+npm install @nautical-symbols/sprite
+```
+
+The package ships a single `sprite.svg` file containing all symbols as `<symbol>` elements. Symbol IDs are the symbol codes (e.g. `flag-alfa`, `substitute-1`, `pennant-1`).
+
+## Usage
+
+<Tabs>
+  <TabItem label="External reference">
+Serve `sprite.svg` as a static asset and reference it with a full path. No inline HTML changes needed.
+
+```html
+<svg width="64" height="64" role="img" aria-label="A (Alfa)">
+  <use href="/assets/sprite.svg#flag-alfa"></use>
+</svg>
+```
+  </TabItem>
+  <TabItem label="Inline sprite">
+Inline the sprite file once at the top of the page (hidden), then reference symbols with a fragment-only href anywhere on the page.
+
+```html
+<body>
+  <!-- Inline once, hidden -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <!-- contents of sprite.svg pasted here -->
+  </svg>
+
+  <!-- Reference anywhere on the page -->
+  <svg width="64" height="64" role="img" aria-label="A (Alfa)">
+    <use href="#flag-alfa"></use>
+  </svg>
+  <svg width="64" height="64" role="img" aria-label="First substitute">
+    <use href="#substitute-1"></use>
+  </svg>
+</body>
+```
+  </TabItem>
+  <TabItem label="React (createPortal)">
+Inject the sprite into `document.body` once using `createPortal`, then reference symbols normally.
+
+```tsx
+import { createPortal } from 'react-dom';
+import spriteContent from '@nautical-symbols/sprite/sprite.svg?raw';
+
+function SpriteInjector() {
+  return createPortal(
+    <svg style={{ display: 'none' }} dangerouslySetInnerHTML={{ __html: spriteContent }} />,
+    document.body
+  );
+}
+
+export function App() {
+  return (
+    <>
+      <SpriteInjector />
+      <svg width="64" height="64" role="img" aria-label="A (Alfa)">
+        <use href="#flag-alfa" />
+      </svg>
+    </>
+  );
+}
+```
+  </TabItem>
+</Tabs>
+
+## Symbol ID format
+
+Symbol IDs are the symbol codes, with no additional segments:
+
+| Symbol                   | Symbol ID           |
+|--------------------------|---------------------|
+| A (Alfa)   | `flag-alfa`           |
+| First substitute            | `substitute-1`     |
+| Can buoy red        | `chart-can-buoy-red` |
+| Iron at low temperature  | `pennant-1`          |
+| Topmark saltire          | `topmark-saltire`   |
+
+## Accessibility
+
+The `<use>` element does not inherit an accessible name from the referenced `<symbol>`. Always wrap `<use>` in an `<svg>` that carries `role="img"` and either `aria-label` or `aria-labelledby`.
+
+```html
+<!-- Correct -->
+<svg width="64" height="64" role="img" aria-label="A (Alfa)">
+  <use href="/assets/sprite.svg#flag-alfa"></use>
+</svg>
+
+<!-- Also correct — label defined elsewhere -->
+<svg width="64" height="64" role="img" aria-labelledby="symbol-label">
+  <use href="/assets/sprite.svg#flag-alfa"></use>
+</svg>
+<span id="symbol-label">A (Alfa)</span>
+```

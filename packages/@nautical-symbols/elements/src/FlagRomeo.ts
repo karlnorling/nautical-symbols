@@ -1,0 +1,23 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { SymbolElement } from './SymbolElement.js';
+import type { SymbolElementContent } from './SymbolElement.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 5 5\"",
+  body: "<path fill=\"red\" d=\"M0 0h5v5H0z\"/><path fill=\"#ff0\" d=\"M2 0h1v2h2v1H3v2H2V3H0V2h2z\"/>",
+  height: "600",
+  width: "600",
+};
+const _title = "R (Romeo)";
+const _description = "No ICS meaning as single flag. Prior to 1969: \"The way is off my ship; you may feel your way past me.\" With a numeric complement: Distance (range) in nautical miles.";
+
+export class FlagRomeo extends SymbolElement {
+  static readonly tagName = 'nautical-flag-romeo';
+
+  protected content(): SymbolElementContent {
+    return { description: _description, svg: _svg, title: _title };
+  }
+}

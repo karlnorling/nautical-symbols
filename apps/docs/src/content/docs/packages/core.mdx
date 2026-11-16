@@ -1,0 +1,100 @@
+---
+title: "@nautical-symbols/core"
+description: Core API for querying nautical symbol metadata — symbol data, categories, and TypeScript types.
+---
+
+## Installation
+
+```sh
+npm install @nautical-symbols/core
+```
+
+## API reference
+
+| Function                        | Returns      | Description                                             |
+|---------------------------------|--------------|---------------------------------------------------------|
+| `getAllSymbols()`                  | `NauticalSymbol[]`     | Returns every symbol in the library.                      |
+| `getSymbol(id)`                   | `NauticalSymbol`       | Returns a single symbol by its ID. Throws if not found.   |
+| `getSymbolsByCategory(category)`  | `NauticalSymbol[]`     | Returns all symbols belonging to the given category.      |
+
+```ts
+import { getAllSymbols, getSymbol, getSymbolsByCategory } from '@nautical-symbols/core';
+
+// All symbols
+const symbols = getAllSymbols();
+
+// Single symbol by ID
+const alfa = getSymbol('flag-alfa');
+
+// All letter flags
+const letters = getSymbolsByCategory('letter-flags');
+```
+
+## TypeScript types
+
+```ts
+type NauticalSymbolCategory =
+  | 'letter-flags'
+  | 'number-pennants'
+  | 'nato-number-flags'
+  | 'special-pennants'
+  | 'cardinal-marks'
+  | 'lateral-marks'
+  | 'isolated-danger-marks'
+  | 'special-marks'
+  | 'beacons'
+  | 'topmarks'
+  | 'lights'
+  | 'dangers'
+  | 'areas'
+  | 'harbour'
+  | 'other';
+
+type NauticalSymbolAssets = {
+  svg: string;
+  png: Record<240 | 512 | 768 | 1024 | 2048, string>;
+  webp: Record<240 | 512 | 768 | 1024 | 2048, string>;
+};
+
+type NauticalSymbol = {
+  id: string;          // e.g. 'flag-alfa'
+  code: string;        // e.g. 'flag-alfa' (same as id)
+  name: string;        // e.g. 'A (Alfa)'
+  description: string; // Plain-language description of the symbol
+  category: NauticalSymbolCategory;
+  svg: string;         // Inline SVG markup
+  assets: NauticalSymbolAssets;
+};
+```
+
+## Category values
+
+| Category | Symbols | Group | Contents |
+| --- | --- | --- | --- |
+| `letter-flags` | 26 | flags | ICS letter flags Alfa–Zulu, with single-flag meanings |
+| `number-pennants` | 10 | flags | ICS numeral pennants 0–9 |
+| `nato-number-flags` | 10 | flags | NATO numeral flags 0–9 |
+| `special-pennants` | 5 | flags | Answer (code) pennant and the four substitutes |
+| `cardinal-marks` | 24 | chart | North, east, south and west cardinal marks |
+| `lateral-marks` | 124 | chart | Red and green port / starboard buoys and beacons |
+| `isolated-danger-marks` | 6 | chart | Isolated danger marks |
+| `special-marks` | 2 | chart | Special marks (X-shaped topmark) |
+| `beacons` | 3 | chart | Unpainted beacons and stakes |
+| `topmarks` | 16 | chart | Buoyage topmarks |
+| `lights` | 8 | chart | Light symbols and flares |
+| `dangers` | 14 | chart | Rocks, wrecks and obstructions |
+| `areas` | 13 | chart | Anchorage, fishing and traffic areas |
+| `harbour` | 10 | chart | Harbours, marinas, pilot stations, lock gates and offices |
+| `other` | 2 | chart | Diving sites |
+
+## ID format
+
+Symbol IDs are stable kebab-case codes. The symbols have no official numbering, so the codes
+are assigned in `bin/scrape.ts` and never change once published. A few examples:
+
+- `flag-alfa`, `flag-zulu`, `pennant-0`, `nato-flag-9`, `pennant-answer`, `substitute-1`
+- `chart-can-buoy-red`, `chart-conical-buoy-green-conical-topmark`, `ecdis-cardinal-buoy-north`
+- `topmark-two-cone-up-black`, `chart-major-light`, `chart-wreck`, `chart-anchorage-area`
+- `iron-medium`, `do-not-iron`
+
+The full list is in the [Symbol Gallery](/nautical-symbols/gallery/).

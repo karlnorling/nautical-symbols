@@ -1,0 +1,91 @@
+---
+title: "@nautical-symbols/vue"
+description: Vue 3 components for nautical symbols — named components and a dynamic SymbolById loader.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+```sh
+npm install @nautical-symbols/vue
+```
+
+## Named components
+
+Each symbol is available as a PascalCase named export derived from its code and name.
+
+```vue
+<script setup lang="ts">
+import { FlagAlfa } from '@nautical-symbols/vue';
+</script>
+
+<template>
+  <FlagAlfa :width="64" :height="64" title="A (Alfa)" />
+</template>
+```
+
+The component name pattern is `{Code}{Name}` — e.g. `Substitute1`, `ChartCanBuoyRed`, `Pennant1`, `TopmarkTwoConeUpBlack`.
+
+## SymbolById component
+
+Use `SymbolById` when the symbol is determined at runtime.
+
+```vue
+<script setup lang="ts">
+import { SymbolById } from '@nautical-symbols/vue';
+
+const props = defineProps<{ id: string }>();
+</script>
+
+<template>
+  <SymbolById :id="props.id" :width="64" :height="64" title="Nautical symbol" />
+</template>
+```
+
+## Props
+
+### Named component props
+
+| Prop          | Type     | Required | Description                                           |
+|---------------|----------|----------|-------------------------------------------------------|
+| `width`       | `number` | No       | Width in pixels. Defaults to the SVG's intrinsic width. |
+| `height`      | `number` | No       | Height in pixels. Defaults to the SVG's intrinsic height. |
+| `title`       | `string` | No       | Sets the SVG `<title>` element for screen readers.    |
+| `description` | `string` | No       | Sets the SVG `<desc>` element for additional context. |
+
+Bind dynamic values with `:width="64"` syntax; pass static strings without the colon.
+
+### SymbolById additional prop
+
+| Prop | Type     | Required | Description                            |
+|------|----------|----------|----------------------------------------|
+| `id` | `string` | Yes      | Symbol ID, e.g. `"flag-alfa"`. |
+
+All named component props also apply to `SymbolById`.
+
+## TypeScript
+
+The package ships its own type declarations. Import the prop type if you need it:
+
+```ts
+import type { SymbolProps } from '@nautical-symbols/vue';
+```
+
+## Accessibility
+
+Every component renders an `<svg>` with `role="img"` and an `aria-labelledby` attribute pointing to the generated `<title>` and `<desc>` elements, which default to the symbol name. Passing `aria-label` labels the `<svg>` directly instead. Ids are unique per instance, so the same symbol can appear any number of times on a page.
+
+```vue
+<template>
+  <!-- Fully accessible -->
+  <FlagAlfa
+    :width="64"
+    title="A (Alfa)"
+    description="Green symbol showing a running figure with directional arrow"
+  />
+
+  <!-- Decorative — already labelled by surrounding text -->
+  <FlagAlfa :width="32" aria-hidden="true" />
+</template>
+```

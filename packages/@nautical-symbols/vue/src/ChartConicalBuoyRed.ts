@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.
+// Run 'yarn generate' to regenerate.
+
+import { defineComponent } from 'vue';
+import type { ParsedSvg } from '@nautical-symbols/core';
+import { symbolProps } from './SymbolProps.js';
+import { renderSymbol, useInstanceId } from './SymbolSvg.js';
+
+const _svg: ParsedSvg = {
+  attrs: "xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 320\"",
+  body: "<path d=\"M216.406 144.094c-3.946.065-7.532 2.22-11.281 5.187-4 3.165-8.228 7.496-12.656 12.594-8.774 10.103-18.28 23.167-27.156 35.313h-7.157v5.656h29.688c1.287 5.533 6.233 9.656 12.156 9.656 5.925 0 10.87-4.12 12.156-9.656H242v-5.657h-7.719c-1.276-11.327-2.185-23.372-4-33.093-.954-5.114-2.122-9.575-4-13.156-1.877-3.582-4.968-6.614-9.094-6.844-.266-.015-.518-.005-.78 0m.375 6.969c1.085.06 1.995.67 3.281 3.125 1.287 2.453 2.452 6.409 3.344 11.187 1.658 8.877 2.56 20.532 3.813 31.813h-15.063c-1.285-5.536-6.231-9.657-12.156-9.657-5.923 0-10.869 4.124-12.156 9.656H174c7.978-10.9 16.24-22.071 23.75-30.718 4.269-4.915 8.302-9.015 11.719-11.719s6.211-3.748 7.312-3.687M200 192.5c4.14 0 7.5 3.36 7.5 7.5s-3.36 7.5-7.5 7.5-7.5-3.36-7.5-7.5 3.36-7.5 7.5-7.5\" style=\"fill:#000407;fill-opacity:1;fill-rule:evenodd;stroke:none\" transform=\"translate(-40 -40)\"/>",
+  height: "320",
+  width: "320",
+};
+const _title = "Conical buoy red";
+const _description = "Conical buoy red — INT 1 paper chart symbol";
+
+export const ChartConicalBuoyRed = defineComponent({
+  name: 'ChartConicalBuoyRed',
+  inheritAttrs: false,
+  props: symbolProps,
+  setup(props, { attrs }) {
+    const instanceId = useInstanceId();
+    return () =>
+      renderSymbol({
+        attrs,
+        description: props.description ?? _description,
+        height: props.height,
+        instanceId,
+        svg: _svg,
+        title: props.title ?? _title,
+        width: props.width,
+      });
+  },
+});

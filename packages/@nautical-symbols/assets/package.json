@@ -1,0 +1,45 @@
+{
+  "name": "@nautical-symbols/assets",
+  "version": "0.1.0",
+  "description": "Static image assets for all nautical symbols — SVG, PNG, JPG, and WebP at five sizes (240–2048 px)",
+  "keywords": [
+    "assets",
+    "nautical",
+    "maritime",
+    "icons",
+    "images",
+    "jpg",
+    "signal-flags",
+    "maritime-flags",
+    "international-code-of-signals",
+    "nautical-chart",
+    "chart-symbols",
+    "pictogram",
+    "png",
+    "svg",
+    "webp"
+  ],
+  "homepage": "https://karlnorling.github.io/nautical-symbols/",
+  "bugs": {
+    "url": "https://github.com/karlnorling/nautical-symbols/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlnorling/nautical-symbols.git",
+    "directory": "packages/@nautical-symbols/assets"
+  },
+  "files": [
+    "assets/",
+    "!assets/svg-map.json",
+    "package.json",
+    "README.md"
+  ],
+  "exports": {
+    "./assets/*": "./assets/*"
+  },
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  }
+}

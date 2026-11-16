@@ -1,0 +1,113 @@
+---
+title: Getting started
+description: Install @nautical-symbols packages and display your first symbol in minutes.
+---
+
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+## Installation
+
+Pick the package for your framework:
+
+<Tabs>
+  <TabItem label="React">
+    ```sh
+    npm install @nautical-symbols/react
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```sh
+    npm install @nautical-symbols/vue
+    ```
+  </TabItem>
+  <TabItem label="Web Components">
+    ```sh
+    npm install @nautical-symbols/elements
+    ```
+  </TabItem>
+  <TabItem label="CSS">
+    ```sh
+    npm install @nautical-symbols/css
+    ```
+  </TabItem>
+</Tabs>
+
+## Quick start
+
+<Tabs>
+  <TabItem label="React">
+    ```tsx
+    import { FlagAlfa, SymbolById } from '@nautical-symbols/react';
+
+    // Named component
+    <FlagAlfa width={64} />
+
+    // Dynamic by ID
+    <SymbolById id="flag-alfa" width={64} />
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { FlagAlfa, SymbolById } from '@nautical-symbols/vue';
+    </script>
+
+    <template>
+      <!-- Named component -->
+      <FlagAlfa :width="64" />
+
+      <!-- Dynamic by ID -->
+      <SymbolById id="flag-alfa" :width="64" />
+    </template>
+    ```
+  </TabItem>
+  <TabItem label="Web Components">
+    ```ts
+    import { defineCustomElements } from '@nautical-symbols/elements';
+    defineCustomElements();
+    ```
+
+    ```html
+    <!-- Generic element -->
+    <nautical-symbol symbol-id="flag-alfa" width="64"></nautical-symbol>
+
+    <!-- Named element -->
+    <nautical-flag-alfa width="64"></nautical-flag-alfa>
+    ```
+  </TabItem>
+  <TabItem label="CSS">
+    ```js
+    import '@nautical-symbols/css/sprite.css';
+    ```
+
+    ```html
+    <span
+      class="nautical-flag-alfa"
+      style="display:inline-block;width:64px;height:64px"
+      role="img"
+      aria-label="A (Alfa)"
+    ></span>
+    ```
+  </TabItem>
+</Tabs>
+
+## Finding symbol IDs
+
+Every symbol has a stable kebab-case slug ID. You can find the ID for any symbol in the
+[Symbol Gallery](/nautical-symbols/gallery/) — hover over a card to see its description, and the code is shown below each symbol.
+
+IDs describe the symbol, e.g. `flag-alfa`, `pennant-3` or `chart-cardinal-mark-pillar-north`.
+
+## TypeScript
+
+All packages ship full TypeScript types. The `core` package exports the `NauticalSymbol` type and
+`NauticalSymbolCategory` union if you need them:
+
+```ts
+import type { NauticalSymbol, NauticalSymbolCategory } from '@nautical-symbols/core';
+```
+
+## Next steps
+
+- See the full props/attributes for each package in the [Packages](/nautical-symbols/packages/react/) section.
+- Browse all 273 symbols in the [Symbol Gallery](/nautical-symbols/gallery/).

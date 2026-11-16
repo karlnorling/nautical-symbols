@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CSSSpriteStories from './CSSSprite.stories';
+
+<Meta of={CSSSpriteStories} />
+
+# CSS Sprite
+
+Import `sprite.css` to get a set of `.nautical-*` utility classes. Apply a class to any block element sized with `width`/`height` — no JavaScript required.
+
+## Installation
+
+```sh
+npm install @nautical-symbols/css
+```
+
+## Setup
+
+```js
+import '@nautical-symbols/css/sprite.css';
+```
+
+```css
+@import '@nautical-symbols/css/sprite.css';
+```
+
+## Usage
+
+```html
+<span
+  class="nautical-flag-alfa"
+  style="display:inline-block; width:64px; height:64px"
+  role="img"
+  aria-label="A (Alfa)"
+></span>
+```
+
+### CSS helper
+
+```ts
+import { getCssClassName } from '@nautical-symbols/css';
+
+const cls = getCssClassName('flag-alfa'); // → 'nautical-flag-alfa'
+element.className = cls;
+```
+
+---
+
+## Class name pattern
+
+Classes follow the pattern `nautical-{code}` — e.g. `nautical-flag-alfa`, `nautical-iron`, `nautical-substitute-1`.
+
+---
+
+## Signal flags
+
+International Code of Signals letter flags, number pennants, NATO number flags, the answer pennant and the substitutes.
+
+<Canvas of={CSSSpriteStories.SignalFlags} />
+
+## Chart symbols
+
+INT 1 paper-chart and ECDIS symbols: buoys, beacons, topmarks, lights, dangers and areas.
+
+<Canvas of={CSSSpriteStories.ChartSymbols} />
+
+---
+
+## All symbols
+
+<Canvas of={CSSSpriteStories.AllSymbols} />

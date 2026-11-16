@@ -1,0 +1,96 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as SVGSpriteStories from './SVGSprite.stories';
+
+<Meta of={SVGSpriteStories} />
+
+# SVG Sprite
+
+A single `sprite.svg` contains all nautical symbols as `<symbol>` elements. Reference any symbol with `<use href="#id">` — one HTTP request serves every symbol.
+
+## Installation
+
+```sh
+npm install @nautical-symbols/sprite
+```
+
+## When to use
+
+| Approach | Best for |
+| -------- | -------- |
+| **SVG sprite** | Plain HTML, no framework, single network request |
+| React components | React/JSX — richer props, TypeScript, tree-shakeable |
+| CSS sprite | Class-name driven usage, CMS output, no JavaScript |
+
+---
+
+## Usage
+
+### External file reference (recommended)
+
+```html
+<svg width="64" height="64" role="img" aria-label="A (Alfa)">
+  <title>A (Alfa)</title>
+  <use href="/assets/sprites/sprite.svg#flag-alfa" />
+</svg>
+```
+
+### Inline sprite
+
+```html
+<div aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <!-- paste contents of sprite.svg here -->
+</div>
+
+<svg width="64" height="64" role="img" aria-label="A (Alfa)">
+  <title>A (Alfa)</title>
+  <use href="#flag-alfa" />
+</svg>
+```
+
+### React with bundler import
+
+```tsx
+import spriteUrl from '@nautical-symbols/sprite/sprite.svg';
+
+<svg width={64} height={64} role="img" aria-label="A (Alfa)">
+  <title>A (Alfa)</title>
+  <use href={`${spriteUrl}#flag-alfa`} />
+</svg>
+```
+
+---
+
+## Symbol ID pattern
+
+Symbol IDs are the symbol codes: `flag-alfa`, `chart-can-buoy-red`, `pennant-1`, etc. Enumerate all IDs from `sprite-ids.json`:
+
+```ts
+import ids from '@nautical-symbols/sprite/sprite-ids.json';
+```
+
+---
+
+## Signal flags
+
+International Code of Signals letter flags, number pennants, NATO number flags, the answer pennant and the substitutes.
+
+<Canvas of={SVGSpriteStories.SignalFlags} />
+
+## Chart symbols
+
+INT 1 paper-chart and ECDIS symbols: buoys, beacons, topmarks, lights, dangers and areas.
+
+<Canvas of={SVGSpriteStories.ChartSymbols} />
+
+---
+
+## All symbols
+
+<Canvas of={SVGSpriteStories.AllSymbols} />
+
+---
+
+## Single icon with controls
+
+<Canvas of={SVGSpriteStories.SingleIcon} />
+<Controls of={SVGSpriteStories.SingleIcon} />

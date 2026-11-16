@@ -1,0 +1,74 @@
+{
+  "name": "@nautical-symbols/vue",
+  "version": "0.1.0",
+  "description": "Accessible Vue 3 components for all nautical symbols — fully typed, zero runtime dependencies beyond Vue",
+  "keywords": [
+    "accessible",
+    "components",
+    "nautical",
+    "maritime",
+    "signal-flags",
+    "maritime-flags",
+    "international-code-of-signals",
+    "nautical-chart",
+    "chart-symbols",
+    "pictogram",
+    "svg",
+    "typescript",
+    "ui",
+    "vue",
+    "vue3"
+  ],
+  "homepage": "https://karlnorling.github.io/nautical-symbols/",
+  "bugs": {
+    "url": "https://github.com/karlnorling/nautical-symbols/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlnorling/nautical-symbols.git",
+    "directory": "packages/@nautical-symbols/vue"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
+    "test": "jest",
+    "type-check": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nautical-symbols/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "@vue/compiler-dom": "^3.5.45",
+    "@vue/test-utils": "^2.5.1",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "vue": "^3.5.45"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.0"
+  },
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,156 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel in-progress runs for the same ref to avoid redundant work.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Quality checks — run on every push and pull request
+  # ---------------------------------------------------------------------------
+  quality:
+    name: Quality checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Enable Corepack (Yarn 4)
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Workspace integrity check (manypkg)
+        run: yarn check
+
+      # GitHub Actions only *warns* when an action is passed an input it does
+      # not declare, so an action major bump that renames inputs fails silently.
+      # That happened here: changesets/action v1 -> v2 renamed every input and
+      # moved the token to an input, which broke publishing on main for four
+      # pushes (#82, #85) because the release job only runs on push to main.
+      # Fails on an undeclared input; deprecations only warn.
+      - name: Audit GitHub Action inputs
+        run: yarn audit-actions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check formatting (oxfmt)
+        run: yarn format:check
+
+      - name: Lint (oxlint)
+        run: yarn lint
+
+      - name: Lint CSS (stylelint)
+        run: yarn lint:css
+
+      - name: Type check
+        run: yarn type-check
+
+      - name: Compile
+        run: yarn compile
+
+      - name: Test
+        run: yarn test
+
+      - name: Check packages load in Node (ESM + CJS)
+        run: yarn check:esm
+
+  # ---------------------------------------------------------------------------
+  # Release — only on pushes to main, after quality passes
+  #
+  # Behaviour (via changesets/action):
+  #   • If un-consumed changesets exist → opens / updates a "Version Packages" PR.
+  #   • If the Version Packages PR was just merged → bumps versions, publishes
+  #     each public workspace package to npm, and creates GitHub Releases.
+  #
+  # Authentication uses npm Trusted Publishers (OIDC) — no long-lived NPM_TOKEN
+  # secret is required once the GitHub repository is registered as a Trusted
+  # Publisher on npmjs.com (Settings → Access → Trusted Publishers).
+  # See: https://docs.npmjs.com/generating-provenance-statements
+  # ---------------------------------------------------------------------------
+  release:
+    name: Release
+    needs: quality
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    # Must match the environment name configured on npmjs.com as a Trusted Publisher.
+    environment: main
+
+    permissions:
+      contents: write # push version-bump commits and create GitHub Releases
+      pull-requests: write # open and update the Version Packages PR
+      id-token: write # obtain OIDC token for npm Trusted Publishers
+
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.NAUTICAL_SYMBOLS_APP_ID }}
+          private-key: ${{ secrets.NAUTICAL_SYMBOLS_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          # Full history so changesets can compare package versions across tags.
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Enable Corepack (Yarn 4)
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Compile packages
+        run: yarn compile
+
+      - name: Create Version PR or Publish to npm
+        uses: changesets/action@v2
+        with:
+          # v2 takes the token as an input and refuses to run when a mismatched
+          # GITHUB_TOKEN is also present in the environment. Setting the env var
+          # does not configure the action at all, which is how v1 did it.
+          github-token: ${{ steps.app-token.outputs.token }}
+          # Yarn Berry's `yarn npm publish` uses its own HTTP client and does not
+          # invoke npm CLI, so it cannot pick up the OIDC token automatically.
+          # This script uses `npm publish` directly, which handles the OIDC token
+          # exchange with the npm registry natively (npm CLI v9+).
+          publish-script: bash scripts/publish.sh
+          # `changeset version` rewrites internal dependency ranges in package.json
+          # but not yarn.lock, which then fails `yarn install --immutable` on the
+          # Version Packages PR. Refresh the lockfile as part of versioning.
+          version-script: yarn version-packages
+          create-github-releases: true
+
+      - name: Format generated changelogs
+        run: |
+          yarn format
+          git diff --quiet || git commit -am "chore: format generated changelogs"
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com

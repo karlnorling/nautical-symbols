@@ -1,0 +1,149 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Nautical Symbols/Assets & API" />
+
+# Assets & Programmatic API
+
+The `@nautical-symbols/core` package exposes typed data for all nautical symbols alongside helper functions for filtering and lookup. The `@nautical-symbols/assets` package provides pre-built image files at multiple resolutions.
+
+---
+
+## Installation
+
+```sh
+npm install @nautical-symbols/core @nautical-symbols/assets
+```
+
+---
+
+## Programmatic API
+
+```ts
+import {
+  getAllSymbols,
+  getSymbol,
+  getSymbolsByCategory,
+} from '@nautical-symbols/core';
+```
+
+### `getAllSymbols()`
+
+Returns all nautical symbols.
+
+```ts
+const all = getAllSymbols();
+// → NauticalSymbol[]
+```
+
+### `getSymbol(id)`
+
+Look up a single symbol by its slug ID.
+
+```ts
+const alfa = getSymbol('flag-alfa');
+// → NauticalSymbol | undefined
+
+const canBuoy = getSymbol('chart-can-buoy-red');
+```
+
+### `getSymbolsByCategory(category)`
+
+Filter symbols by category, or by group with `getSymbolsByGroup`.
+
+```ts
+const letters   = getSymbolsByCategory('letter-flags');
+const pennants  = getSymbolsByCategory('number-pennants');
+const cardinals = getSymbolsByCategory('cardinal-marks');
+const flags     = getSymbolsByGroup('flags');
+const chart     = getSymbolsByGroup('chart');
+```
+
+---
+
+## `NauticalSymbol` type
+
+```ts
+interface NauticalSymbol {
+  id: string;          // e.g. 'flag-alfa'
+  code: string;        // e.g. 'flag-alfa' (same as id)
+  name: string;        // e.g. 'A (Alfa)'
+  category: NauticalSymbolCategory;
+  description: string; // accessible description
+  svg: string;         // inline SVG markup
+  assets: NauticalSymbolAssets;
+}
+
+interface NauticalSymbolAssets {
+  svg: string;                    // relative path to original SVG
+  png: Record<number, string>;    // size → relative path (240, 512, 768, 1024, 2048)
+  jpg: Record<number, string>;    // same sizes
+  webp: Record<number, string>;   // same sizes
+}
+
+type NauticalSymbolCategory = 'letter-flags' | 'number-pennants' | 'nato-number-flags' | 'special-pennants' | 'cardinal-marks' | 'lateral-marks' | 'isolated-danger-marks' | 'special-marks' | 'beacons' | 'topmarks' | 'lights' | 'dangers' | 'areas' | 'harbour' | 'other';
+```
+
+---
+
+## Categories
+
+| Category | Symbols | Group | Contents |
+| --- | --- | --- | --- |
+| `letter-flags` | 26 | flags | ICS letter flags Alfa–Zulu, with single-flag meanings |
+| `number-pennants` | 10 | flags | ICS numeral pennants 0–9 |
+| `nato-number-flags` | 10 | flags | NATO numeral flags 0–9 |
+| `special-pennants` | 5 | flags | Answer (code) pennant and the four substitutes |
+| `cardinal-marks` | 24 | chart | North, east, south and west cardinal marks |
+| `lateral-marks` | 124 | chart | Red and green port / starboard buoys and beacons |
+| `isolated-danger-marks` | 6 | chart | Isolated danger marks |
+| `special-marks` | 2 | chart | Special marks (X-shaped topmark) |
+| `beacons` | 3 | chart | Unpainted beacons and stakes |
+| `topmarks` | 16 | chart | Buoyage topmarks |
+| `lights` | 8 | chart | Light symbols and flares |
+| `dangers` | 14 | chart | Rocks, wrecks and obstructions |
+| `areas` | 13 | chart | Anchorage, fishing and traffic areas |
+| `harbour` | 10 | chart | Harbours, marinas, pilot stations, lock gates and offices |
+| `other` | 2 | chart | Diving sites |
+
+---
+
+## Asset files
+
+The `@nautical-symbols/assets` package ships pre-converted raster images at five resolutions in PNG, JPG, and WebP formats alongside the original SVGs.
+
+### Directory layout
+
+```
+assets/
+  letter-flags/
+    flag-alfa/
+      flag-alfa.svg
+      flag-alfa_240x240.png
+      flag-alfa_512x512.png
+      flag-alfa_768x768.png
+      flag-alfa_1024x1024.png
+      flag-alfa_2048x2048.png
+      flag-alfa_240x240.jpg
+      flag-alfa_240x240.webp
+      …
+  special-pennants/
+    substitute-1/
+      substitute-1.svg
+      …
+  cardinal-marks/
+  lateral-marks/
+  …
+```
+
+### Resolve asset paths via the API
+
+```ts
+import { getSymbol } from '@nautical-symbols/core';
+
+const symbol = getSymbol('flag-alfa');
+if (symbol) {
+  console.log(symbol.assets.svg);       // 'letter-flags/flag-alfa/flag-alfa.svg'
+  console.log(symbol.assets.png[512]);  // 'letter-flags/flag-alfa/flag-alfa_512x512.png'
+  console.log(symbol.assets.webp[240]); // 'letter-flags/flag-alfa/flag-alfa_240x240.webp'
+}
+```

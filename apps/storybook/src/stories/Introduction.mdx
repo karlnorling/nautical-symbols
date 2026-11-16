@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Nautical Symbols
+
+Accessible, framework-agnostic packages for the **International Code of Signals** flags and **nautical chart** symbols.
+
+[![CI](https://github.com/karlnorling/nautical-symbols/actions/workflows/ci.yml/badge.svg)](https://github.com/karlnorling/nautical-symbols/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/karlnorling/nautical-symbols/blob/main/LICENSE)
+
+---
+
+## What's included?
+
+Signal flags are the International Code of Signals (ICS) flag set: 26 letter flags, each with a
+standard single-flag meaning, the numeral pennants, the NATO numeral flags, the answer pennant and
+the substitutes that repeat a flag within one hoist. Chart symbols are the INT 1 and ECDIS
+pictograms for buoys, beacons, topmarks, lights, dangers and areas on nautical charts.
+Dots indicate temperature; one bar under a symbol means a mild process, two bars a very mild one;
+a cross means the treatment is not allowed.
+
+| Category | Symbols | Group | Contents |
+| --- | --- | --- | --- |
+| `letter-flags` | 26 | flags | ICS letter flags Alfa–Zulu, with single-flag meanings |
+| `number-pennants` | 10 | flags | ICS numeral pennants 0–9 |
+| `nato-number-flags` | 10 | flags | NATO numeral flags 0–9 |
+| `special-pennants` | 5 | flags | Answer (code) pennant and the four substitutes |
+| `cardinal-marks` | 24 | chart | North, east, south and west cardinal marks |
+| `lateral-marks` | 124 | chart | Red and green port / starboard buoys and beacons |
+| `isolated-danger-marks` | 6 | chart | Isolated danger marks |
+| `special-marks` | 2 | chart | Special marks (X-shaped topmark) |
+| `beacons` | 3 | chart | Unpainted beacons and stakes |
+| `topmarks` | 16 | chart | Buoyage topmarks |
+| `lights` | 8 | chart | Light symbols and flares |
+| `dangers` | 14 | chart | Rocks, wrecks and obstructions |
+| `areas` | 13 | chart | Anchorage, fishing and traffic areas |
+| `harbour` | 10 | chart | Harbours, marinas, pilot stations, lock gates and offices |
+| `other` | 2 | chart | Diving sites |
+
+---
+
+## Packages
+
+| Package | Description |
+| ------- | ----------- |
+| [`@nautical-symbols/react`](/?path=/docs/nautical-symbols-react-components--docs) | Inline SVG React components, tree-shakeable, fully typed |
+| [`@nautical-symbols/vue`](https://www.npmjs.com/package/@nautical-symbols/vue) | Inline SVG Vue 3 components |
+| [`@nautical-symbols/elements`](https://www.npmjs.com/package/@nautical-symbols/elements) | Web Components / Custom Elements (`<nautical-symbol>`) |
+| [`@nautical-symbols/css`](/?path=/docs/nautical-symbols-css-sprite--docs) | CSS background-image sprite, zero JavaScript |
+| [`@nautical-symbols/sprite`](/?path=/docs/nautical-symbols-svg-sprite--docs) | SVG `<symbol>` sprite, single network request |
+| [`@nautical-symbols/assets`](/?path=/docs/nautical-symbols-assets-api--docs) | Pre-built SVG, PNG, JPG, WebP at 5 sizes |
+| [`@nautical-symbols/core`](/?path=/docs/nautical-symbols-assets-api--docs) | Typed symbol data and lookup API |
+
+---
+
+## Quick start
+
+### React
+
+```sh
+npm install @nautical-symbols/react
+```
+
+```tsx
+import { SymbolById } from '@nautical-symbols/react';
+
+<SymbolById id="flag-alfa" width={64} />
+```
+
+Named components are also generated for each symbol:
+
+```tsx
+import { FlagAlfa, ChartCanBuoyRed } from '@nautical-symbols/react';
+
+<FlagAlfa width={64} />
+<ChartCanBuoyRed width={64} title="Can buoy red" />
+```
+
+### Vue 3
+
+```sh
+npm install @nautical-symbols/vue
+```
+
+```vue
+<script setup>
+import { SymbolById } from '@nautical-symbols/vue';
+</script>
+<template>
+  <SymbolById id="flag-alfa" :width="64" />
+</template>
+```
+
+### Web Components
+
+```sh
+npm install @nautical-symbols/elements
+```
+
+```ts
+import { defineCustomElements } from '@nautical-symbols/elements';
+defineCustomElements();
+```
+
+```html
+<nautical-symbol symbol-id="flag-alfa" width="64"></nautical-symbol>
+<nautical-flag-alfa width="64"></nautical-flag-alfa>
+```
+
+### CSS sprite (no JavaScript)
+
+```sh
+npm install @nautical-symbols/css
+```
+
+```js
+import '@nautical-symbols/css/sprite.css';
+```
+
+```html
+<span class="nautical-flag-alfa" style="display:inline-block;width:64px;height:64px"
+      role="img" aria-label="A (Alfa)"></span>
+```
+
+### SVG sprite
+
+```sh
+npm install @nautical-symbols/sprite
+```
+
+```html
+<svg width="64" height="64" role="img" aria-label="A (Alfa)">
+  <title>A (Alfa)</title>
+  <use href="/path/to/sprite.svg#flag-alfa" />
+</svg>
+```
+
+### Programmatic API
+
+```ts
+import { getAllSymbols, getSymbol, getSymbolsByCategory } from '@nautical-symbols/core';
+
+const allSymbols = getAllSymbols();                        // NauticalSymbol[]
+const symbol     = getSymbol('flag-alfa');        // NauticalSymbol | undefined
+const cardinals = getSymbolsByCategory('cardinal-marks');         // NauticalSymbol[]
+```
+
+---
+
+## License
+
+MIT. The symbol graphics are published under free licences on Wikimedia Commons — see each symbol's Wikimedia Commons page for the specific licence of its SVG artwork.

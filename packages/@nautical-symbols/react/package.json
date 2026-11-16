@@ -1,0 +1,77 @@
+{
+  "name": "@nautical-symbols/react",
+  "version": "0.1.0",
+  "description": "Accessible React components for all nautical symbols — fully typed, zero runtime dependencies beyond React",
+  "keywords": [
+    "accessible",
+    "components",
+    "nautical",
+    "maritime",
+    "jsx",
+    "signal-flags",
+    "maritime-flags",
+    "international-code-of-signals",
+    "nautical-chart",
+    "chart-symbols",
+    "pictogram",
+    "react",
+    "react-component",
+    "svg",
+    "tsx",
+    "typescript",
+    "ui"
+  ],
+  "homepage": "https://karlnorling.github.io/nautical-symbols/",
+  "bugs": {
+    "url": "https://github.com/karlnorling/nautical-symbols/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlnorling/nautical-symbols.git",
+    "directory": "packages/@nautical-symbols/react"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
+    "test": "jest",
+    "type-check": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@nautical-symbols/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "ts-jest": "^29.4.15",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  },
+  "sideEffects": false
+}

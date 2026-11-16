@@ -1,0 +1,91 @@
+---
+title: "@nautical-symbols/elements"
+description: Framework-agnostic Web Components for nautical symbols, usable in any HTML environment.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+```sh
+npm install @nautical-symbols/elements
+```
+
+## Registering elements
+
+Call `defineCustomElements()` once at your app's entry point before using any elements.
+
+```ts
+import { defineCustomElements } from '@nautical-symbols/elements';
+
+defineCustomElements();
+```
+
+### Custom prefix
+
+By default elements are registered as `nautical-*`. Pass a custom prefix to avoid collisions:
+
+```ts
+defineCustomElements('my-prefix'); // safe to combine with defineCustomElements()
+// Registers <my-prefix-symbol symbol-id="...">, <my-prefix-flag-alfa>, etc.
+```
+
+## Generic element
+
+Use `<nautical-symbol>` when the symbol is determined at runtime via the `symbol-id` attribute.
+
+```html
+<nautical-symbol symbol-id="flag-alfa" width="64" title="A (Alfa)"></nautical-symbol>
+```
+
+## Named elements
+
+Each symbol also has a dedicated element named `nautical-{code}` with no `symbol-id` needed.
+
+```html
+<nautical-flag-alfa width="64" title="A (Alfa)"></nautical-flag-alfa>
+<nautical-substitute-1 width="48"></nautical-substitute-1>
+<nautical-chart-can-buoy-red width="48"></nautical-chart-can-buoy-red>
+```
+
+## Attributes
+
+| Attribute     | Type     | Required              | Description                                       |
+|---------------|----------|-----------------------|---------------------------------------------------|
+| `symbol-id`     | `string` | Yes (`<nautical-symbol>` only) | Symbol ID, e.g. `"flag-alfa"`.           |
+| `width`       | `string` | No                    | Width in pixels as a string, e.g. `"64"`.         |
+| `height`      | `string` | No                    | Height in pixels as a string, e.g. `"64"`.        |
+| `title`       | `string` | No                    | Sets the SVG `<title>` for screen readers.        |
+| `description` | `string` | No                    | Sets the SVG `<desc>` for additional context.     |
+| `aria-label`  | `string` | No                    | Labels the `<svg>` directly instead of via `<title>`/`<desc>`. |
+
+All attributes are reactive — changing them updates the rendered SVG immediately.
+
+## Framework usage
+
+<Tabs>
+  <TabItem label="Vue 3">
+```vue
+<!-- vite.config.ts: set compilerOptions.isCustomElement = (tag) => tag.startsWith('nautical-') -->
+<template>
+  <nautical-symbol symbol-id="flag-alfa" width="64" title="A (Alfa)" />
+</template>
+```
+  </TabItem>
+  <TabItem label="Angular">
+```ts
+// In your NgModule or standalone component, add CUSTOM_ELEMENTS_SCHEMA
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@Component({
+  template: `<nautical-symbol symbol-id="flag-alfa" width="64" title="A (Alfa)"></nautical-symbol>`,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class AppComponent {}
+```
+  </TabItem>
+</Tabs>
+
+## Accessibility
+
+Each element renders an `<svg>` with `role="img"`. Provide a `title` attribute to give the symbol an accessible name. For decorative usage, omit `title` and set `aria-hidden="true"` on the element itself.

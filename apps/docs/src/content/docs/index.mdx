@@ -1,0 +1,82 @@
+---
+title: Nautical Symbols
+description: >-
+  Accessible nautical symbols for React, Vue 3, Web Components, CSS, and static assets.
+  273 symbols across 15 categories. Zero runtime dependencies.
+hero:
+  tagline: >-
+    273 nautical symbols for React, Vue 3, Web Components, CSS, and more.
+    Tree-shakeable. Zero dependencies. Fully accessible.
+  actions:
+    - text: Get started
+      link: /nautical-symbols/getting-started/
+      icon: right-arrow
+    - text: Browse all symbols
+      link: /nautical-symbols/gallery/
+      icon: seti:image
+      variant: secondary
+    - text: GitHub
+      link: https://github.com/karlnorling/nautical-symbols
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why Nautical Symbols?
+
+Signal flags are the International Code of Signals (ICS) flag set: 26 letter flags, each with a
+standard single-flag meaning, the numeral pennants, the NATO numeral flags, the answer pennant and
+the substitutes that repeat a flag within one hoist. Chart symbols are the INT 1 and ECDIS
+pictograms for buoys, beacons, topmarks, lights, dangers and areas on nautical charts.
+This library packages all 273
+symbols as accessible, fully typed components ready to drop into any project.
+
+<CardGrid>
+  <Card title="React & Vue 3" icon="puzzle">
+    Named components and a `SymbolById` helper for dynamic rendering. Tree-shakeable — only the
+    symbols you import end up in your bundle.
+  </Card>
+  <Card title="Web Components" icon="laptop">
+    Framework-agnostic Custom Elements. Works with Angular, Svelte, plain HTML — anywhere.
+  </Card>
+  <Card title="CSS Sprite" icon="seti:css">
+    Zero JavaScript option. Display any symbol with a single class and no JS runtime.
+  </Card>
+  <Card title="Accessible by default" icon="approve-check-circle">
+    Every component renders with `role="img"`, `aria-labelledby`, `<title>`, and `<desc>` inside
+    the SVG.
+  </Card>
+</CardGrid>
+
+## Packages
+
+| Package | Version | Description |
+| ------- | ------- | ----------- |
+| [`@nautical-symbols/react`](./packages/react/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/react)](https://www.npmjs.com/package/@nautical-symbols/react) | React components (inline SVG) |
+| [`@nautical-symbols/vue`](./packages/vue/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/vue)](https://www.npmjs.com/package/@nautical-symbols/vue) | Vue 3 components (inline SVG) |
+| [`@nautical-symbols/elements`](./packages/elements/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/elements)](https://www.npmjs.com/package/@nautical-symbols/elements) | Web Components (Custom Elements) |
+| [`@nautical-symbols/css`](./packages/css/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/css)](https://www.npmjs.com/package/@nautical-symbols/css) | CSS background-image sprite |
+| [`@nautical-symbols/sprite`](./packages/sprite/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/sprite)](https://www.npmjs.com/package/@nautical-symbols/sprite) | SVG symbol sprite |
+| [`@nautical-symbols/assets`](./packages/assets/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/assets)](https://www.npmjs.com/package/@nautical-symbols/assets) | Static SVG/PNG/JPG/WebP files |
+| [`@nautical-symbols/core`](./packages/core/) | [![npm](https://img.shields.io/npm/v/@nautical-symbols/core)](https://www.npmjs.com/package/@nautical-symbols/core) | TypeScript data and lookup API |
+
+## Categories
+
+| Category | Symbols | Group | Contents |
+| --- | --- | --- | --- |
+| `letter-flags` | 26 | flags | ICS letter flags Alfa–Zulu, with single-flag meanings |
+| `number-pennants` | 10 | flags | ICS numeral pennants 0–9 |
+| `nato-number-flags` | 10 | flags | NATO numeral flags 0–9 |
+| `special-pennants` | 5 | flags | Answer (code) pennant and the four substitutes |
+| `cardinal-marks` | 24 | chart | North, east, south and west cardinal marks |
+| `lateral-marks` | 124 | chart | Red and green port / starboard buoys and beacons |
+| `isolated-danger-marks` | 6 | chart | Isolated danger marks |
+| `special-marks` | 2 | chart | Special marks (X-shaped topmark) |
+| `beacons` | 3 | chart | Unpainted beacons and stakes |
+| `topmarks` | 16 | chart | Buoyage topmarks |
+| `lights` | 8 | chart | Light symbols and flares |
+| `dangers` | 14 | chart | Rocks, wrecks and obstructions |
+| `areas` | 13 | chart | Anchorage, fishing and traffic areas |
+| `harbour` | 10 | chart | Harbours, marinas, pilot stations, lock gates and offices |
+| `other` | 2 | chart | Diving sites |

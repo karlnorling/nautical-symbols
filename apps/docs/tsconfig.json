@@ -1,0 +1,8 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "paths": {
+      "@nautical-symbols/core": ["../../packages/@nautical-symbols/core/src/index.ts"]
+    }
+  }
+}
