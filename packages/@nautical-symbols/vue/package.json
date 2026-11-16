@@ -1,6 +1,6 @@
 {
   "name": "@nautical-symbols/vue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Accessible Vue 3 components for all nautical symbols — fully typed, zero runtime dependencies beyond Vue",
   "keywords": [
     "accessible",
@@ -51,7 +51,7 @@
     "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@nautical-symbols/core": "^0.1.0"
+    "@nautical-symbols/core": "^0.2.0"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

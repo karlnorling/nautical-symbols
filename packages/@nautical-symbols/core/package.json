@@ -1,6 +1,6 @@
 {
   "name": "@nautical-symbols/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TypeScript registry and lookup helpers for nautical symbols — includes inline SVG, asset paths, and descriptions",
   "keywords": [
     "accessibility",
